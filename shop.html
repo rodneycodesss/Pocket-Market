@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop Handmade Products & Services - Rodstar Pocket Market</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Poppins', 'sans-serif'],
+          },
+          colors: {
+            primary: '#10B981',
+            secondary: '#047857',
+            dark: '#1F2937',
+            light: '#F3F4F6',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="font-sans bg-gray-50">
+
+  <!-- Navigation -->
+  <nav class="bg-white shadow-md">
+    <div class="container mx-auto px-6 py-3">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center space-x-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+          </svg>
+          <span class="text-xl font-bold text-dark">Rodstar</span>
+        </div>
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="index.html" class="text-dark hover:text-primary">Home</a>
+          <a href="shop.html" class="text-primary font-medium">Shop</a>
+          <a href="#" class="text-dark hover:text-primary">Sell</a>
+          <a href="contact.html" class="text-dark hover:text-primary">Contact</a>
+          <a href="shop.html" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-secondary transition font-semibold">Shop Now</a>
+          <div id="authButtons">
+            <button id="signupBtn" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-secondary transition">Sign Up</button>
+            <button id="loginBtn" class="text-dark px-4 py-2 rounded-lg hover:text-primary transition">Log In</button>
+            <button id="logoutBtn" class="hidden bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition">Log Out</button>
+          </div>
+        </div>
+        <button class="md:hidden focus:outline-none">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-r from-primary to-secondary text-white py-20">
+    <div class="container mx-auto px-6 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6">Shop Handmade African Products & Services</h1>
+      <p class="text-xl mb-8 max-w-2xl mx-auto">Discover unique, handmade products and creative services crafted by talented youth and artisans across Kenya.</p>
+      <div class="flex justify-center">
+        <a href="#products" class="bg-white text-primary font-bold px-8 py-3 rounded-lg hover:bg-gray-100 transition">Browse Products</a>
+        <a href="#services" class="ml-4 bg-white text-primary font-bold px-8 py-3 rounded-lg hover:bg-gray-100 transition">Browse Services</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Handmade Products Section -->
+  <section id="products" class="py-12 bg-gray-50">
+    <div class="container mx-auto px-6">
+      <div class="flex justify-between items-center mb-8">
+        <h2 class="text-2xl font-bold text-dark">Handmade Products</h2>
+        <span class="text-primary font-medium">Support Local Talent</span>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+
+        <!-- Product 1 -->
+        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+          <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Beaded Maasai Bracelets" class="w-full h-48 object-cover">
+          <div class="p-4">
+            <h3 class="font-bold text-lg mb-1">Beaded Maasai Bracelets</h3>
+            <p class="text-gray-500 text-sm mb-2">Handmade by Nairobi youth</p>
+            <div class="flex justify-between items-center">
+              <span class="font-bold text-primary">KSh 250</span>
+              <button class="bg-primary text-white px-3 py-1 rounded-lg hover:bg-secondary transition">Buy</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+          <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=400&q=80" alt="Handmade Ankara Tote Bags" class="w-full h-48 object-cover">
+          <div class="p-4">
+            <h3 class="font-bold text-lg mb-1">Ankara Tote Bags</h3>
+            <p class="text-gray-500 text-sm mb-2">Eco-friendly, crafted by young artisans</p>
+            <div class="flex justify-between items-center">
+              <span class="font-bold text-primary">KSh 350</span>
+              <button class="bg-primary text-white px-3 py-1 rounded-lg hover:bg-secondary transition">Buy</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+          <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80" alt="Personalized Keyholders" class="w-full h-48 object-cover">
+          <div class="p-4">
+            <h3 class="font-bold text-lg mb-1">Personalized Keyholders</h3>
+            <p class="text-gray-500 text-sm mb-2">Hand-carved and painted</p>
+            <div class="flex justify-between items-center">
+              <span class="font-bold text-primary">KSh 200</span>
+              <button class="bg-primary text-white px-3 py-1 rounded-lg hover:bg-secondary transition">Buy</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+          <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=400&q=80" alt="Crochet Bucket Hats" class="w-full h-48 object-cover">
+          <div class="p-4">
+            <h3 class="font-bold text-lg mb-1">Crochet Bucket Hats</h3>
+            <p class="text-gray-500 text-sm mb-2">Handmade by youth groups in Kisumu</p>
+            <div class="flex justify-between items-center">
+              <span class="font-bold text-primary">KSh 500</span>
+              <button class="bg-primary text-white px-3 py-1 rounded-lg hover:bg-secondary transition">Buy</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 5 -->
+        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+          <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80" alt="Beaded Earrings" class="w-full h-48 object-cover">
+          <div class="p-4">
+            <h3 class="font-bold text-lg mb-1">Beaded Earrings</h3>
+            <p class="text-gray-500 text-sm mb-2">Colorful, handmade by local youth</p>
+            <div class="flex justify-between items-center">
+              <span class="font-bold text-primary">KSh 180</span>
+              <button class="bg-primary text-white px-3 py-1 rounded-lg hover:bg-secondary transition">Buy</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 6 -->
+        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+          <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80" alt="Wooden Carvings" class="w-full h-48 object-cover">
+          <div class="p-4">
+            <h3 class="font-bold text-lg mb-1">Wooden Carvings</h3>
+            <p class="text-gray-500 text-sm mb-2">Locally sourced wood, hand-carved</p>
+            <div class="flex justify-between items-center">
+              <span class="font-bold text-primary">KSh 600</span>
+              <button class="bg-primary text-white px-3 py-1 rounded-lg hover:bg-secondary transition">Buy</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Handmade Services Section -->
+  <section id="services" class="py-12 bg-white">
+    <div class="container mx-auto px-6">
+      <div class="flex justify-between items-center mb-8">
+        <h2 class="text-2xl font-bold text-dark">Handmade & Creative Services</h2>
+        <span class="text-primary font-medium">Empower Youth Skills</span>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+
+        <!-- Service 1 -->
+        <div class="bg-gray-50 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+          <div class="p-6 flex flex-col h-full">
+            <h3 class="font-bold text-lg mb-2">Custom Graphic Design</h3>
+            <p class="text-gray-600 mb-4 flex-1">Posters, flyers, and branding for your business or event, designed by student creatives.</p>
+            <div class="flex justify-between items-center mt-auto">
+              <span class="font-bold text-primary">From KSh 350</span>
+              <button class="bg-primary text-white px-3 py-1 rounded-lg hover:bg-secondary transition">Request</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="bg-gray-50 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+          <div class="p-6 flex flex-col h-full">
+            <h3 class="font-bold text-lg mb-2">Personalized Gift Wrapping</h3>
+            <p class="text-gray-600 mb-4 flex-1">Unique, eco-friendly gift wrapping for special occasions, done by local youth.</p>
+            <div class="flex justify-between items-center mt-auto">
+              <span class="font-bold text-primary">From KSh 150</span>
+              <button class="bg-primary text-white px-3 py-1 rounded-lg hover:bg-secondary transition">Request</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="bg-gray-50 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+          <div class="p-6 flex flex-col h-full">
+            <h3 class="font-bold text-lg mb-2">Custom Phone Cover Painting</h3>
+            <p class="text-gray-600 mb-4 flex-1">Get your phone cover hand-painted with your favorite design or name.</p>
+            <div class="flex justify-between items-center mt-auto">
+              <span class="font-bold text-primary">From KSh 300</span>
+              <button class="bg-primary text-white px-3 py-1 rounded-lg hover:bg-secondary transition">Request</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 4 -->
+        <div class="bg-gray-50 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+          <div class="p-6 flex flex-col h-full">
+            <h3 class="font-bold text-lg mb-2">Crochet Lessons</h3>
+            <p class="text-gray-600 mb-4 flex-1">Learn to crochet hats, bags, and more from experienced youth artisans (in-person or online).</p>
+            <div class="flex justify-between items-center mt-auto">
+              <span class="font-bold text-primary">From KSh 500</span>
+              <button class="bg-primary text-white px-3 py-1 rounded-lg hover:bg-secondary transition">Request</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 5 -->
+        <div class="bg-gray-50 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+          <div class="p-6 flex flex-col h-full">
+            <h3 class="font-bold text-lg mb-2">Event Decoration</h3>
+            <p class="text-gray-600 mb-4 flex-1">Affordable, creative event decor using handmade crafts and local materials.</p>
+            <div class="flex justify-between items-center mt-auto">
+              <span class="font-bold text-primary">From KSh 1,000</span>
+              <button class="bg-primary text-white px-3 py-1 rounded-lg hover:bg-secondary transition">Request</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 6 -->
+        <div class="bg-gray-50 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+          <div class="p-6 flex flex-col h-full">
+            <h3 class="font-bold text-lg mb-2">Handmade Jewelry Customization</h3>
+            <p class="text-gray-600 mb-4 flex-1">Order custom beadwork, bracelets, or necklaces with your preferred colors and names.</p>
+            <div class="flex justify-between items-center mt-auto">
+              <span class="font-bold text-primary">From KSh 300</span>
+              <button class="bg-primary text-white px-3 py-1 rounded-lg hover:bg-secondary transition">Request</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 7 -->
+        <div class="bg-gray-50 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+          <div class="p-6 flex flex-col h-full">
+            <h3 class="font-bold text-lg mb-2">Portrait Drawing</h3>
+            <p class="text-gray-600 mb-4 flex-1">Get a hand-drawn portrait for yourself or as a gift, by talented young artists.</p>
+            <div class="flex justify-between items-center mt-auto">
+              <span class="font-bold text-primary">From KSh 700</span>
+              <button class="bg-primary text-white px-3 py-1 rounded-lg hover:bg-secondary transition">Request</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 8 -->
+        <div class="bg-gray-50 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+          <div class="p-6 flex flex-col h-full">
+            <h3 class="font-bold text-lg mb-2">Personalized Keyholder Engraving</h3>
+            <p class="text-gray-600 mb-4 flex-1">Have your name or message engraved on a wooden keyholder, made to order.</p>
+            <div class="flex justify-between items-center mt-auto">
+              <span class="font-bold text-primary">From KSh 200</span>
+              <button class="bg-primary text-white px-3 py-1 rounded-lg hover:bg-secondary transition">Request</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="py-16 bg-primary text-white">
+    <div class="container mx-auto px-6 text-center">
+      <h2 class="text-3xl font-bold mb-6">Ready to Start Selling?</h2>
+      <p class="text-xl mb-8 max-w-2xl mx-auto">Join pocket-Market today and reach thousands of potential customers across Kenya</p>
+      <a href="#" class="inline-block bg-white text-primary font-bold px-8 py-3 rounded-lg hover:bg-gray-100 transition">Sign Up Free</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white py-12">
+    <div class="container mx-auto px-6">
+      <div class="grid md:grid-cols-4 gap-8">
+        <div>
+          <div class="flex items-center space-x-2 mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+            </svg>
+            <span class="text-xl font-bold">pocket-Market</span>
+          </div>
+          <p class="text-gray-300">Helping Kenyan entrepreneurs sell smarter since 2025.</p>
+          <a href="shop.html" class="inline-block mt-4 bg-primary text-white px-4 py-2 rounded-lg hover:bg-secondary transition font-semibold">Shop Now</a>
+        </div>
+        <div>
+          <h3 class="font-bold text-lg mb-4">Quick Links</h3>
+          <ul class="space-y-2">
+            <li><a href="index.html" class="text-gray-300 hover:text-primary transition">Home</a></li>
+            <li><a href="shop.html" class="text-primary">Shop</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-primary transition">Sell</a></li>
+            <li><a href="contact.html" class="text-gray-300 hover:text-primary transition">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-bold text-lg mb-4">Popular Products</h3>
+          <ul class="space-y-2">
+            <li><a href="#products" class="text-gray-300 hover:text-primary transition">Beaded Bracelets</a></li>
+            <li><a href="#products" class="text-gray-300 hover:text-primary transition">Ankara Bags</a></li>
+            <li><a href="#products" class="text-gray-300 hover:text-primary transition">Crochet Hats</a></li>
+            <li><a href="#products" class="text-gray-300 hover:text-primary transition">Wooden Carvings</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-bold text-lg mb-4">Contact</h3>
+          <ul class="space-y-2">
+            <li class="flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-primary" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+              </svg>
+              <span>Nairobi, Kenya</span>
+            </li>
+            <li class="flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-primary" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+              </svg>
+              <span>hello@pocket-market.co.ke</span>
+            </li>
+            <li class="flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-primary" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+              </svg>
+              <span>+254 780 482290</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+        <p>© 2025 Pocket Market. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

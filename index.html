@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pocket Market - Sell Smarter in Kenya</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Poppins', 'sans-serif'],
+          },
+          colors: {
+            primary: '#10B981',
+            secondary: '#047857',
+            dark: '#1F2937',
+            light: '#F3F4F6',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="font-sans bg-gray-50">
+  <!-- Navigation -->
+  <nav class="bg-white shadow-md">
+    <div class="container mx-auto px-6 py-3">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center space-x-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+          </svg>
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="index.html" class="text-dark hover:text-primary">Home</a>
+          <a href="how-it-works.html" class="text-dark hover:text-primary">How It Works</a>
+          <a href="#" class="text-dark hover:text-primary">Success Stories</a>
+          <a href="contact.html" class="text-dark hover:text-primary">Contact</a>
+          <a href="shop.html" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-secondary transition font-semibold">Shop Now</a>
+          <div id="authButtons">
+            <button id="signupBtn" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-secondary transition">Sign Up</button>
+            <button id="loginBtn" class="text-dark px-4 py-2 rounded-lg hover:text-primary transition">Log In</button>
+            <button id="logoutBtn" class="hidden bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition">Log Out</button>
+          </div>
+        </div>
+        
+        <button class="md:hidden focus:outline-none">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-r from-primary to-secondary text-white py-20">
+    <div class="container mx-auto px-6 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6">Sell Smarter in Kenya</h1>
+      <p class="text-xl mb-8 max-w-2xl mx-auto">Find the best platforms to sell your products and services with our intelligent recommendation engine</p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="#recommendation-tool" class="bg-white text-primary font-bold px-8 py-3 rounded-lg hover:bg-gray-100 transition">Get Started</a>
+        <a href="#" class="border-2 border-white text-white font-bold px-8 py-3 rounded-lg hover:bg-white hover:text-primary transition">How It Works</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center text-dark mb-12">Why Choose Pocket-Market?</h2>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Feature 1 -->
+        <div class="bg-light p-8 rounded-xl shadow-sm hover:shadow-md transition">
+          <div class="bg-primary bg-opacity-10 w-14 h-14 rounded-full flex items-center justify-center mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Smart Recommendations</h3>
+          <p class="text-gray-600">Our algorithm analyzes your product and target market to suggest the most effective platforms.</p>
+        </div>
+        
+        <!-- Feature 2 -->
+        <div class="bg-light p-8 rounded-xl shadow-sm hover:shadow-md transition">
+          <div class="bg-primary bg-opacity-10 w-14 h-14 rounded-full flex items-center justify-center mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Cost Effective</h3>
+          <p class="text-gray-600">We help you avoid wasting money on ineffective advertising by targeting the right platforms.</p>
+        </div>
+        
+        <!-- Feature 3 -->
+        <div class="bg-light p-8 rounded-xl shadow-sm hover:shadow-md transition">
+          <div class="bg-primary bg-opacity-10 w-14 h-14 rounded-full flex items-center justify-center mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Proven Strategies</h3>
+          <p class="text-gray-600">Get actionable tips tailored to each platform to maximize your sales potential.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Recommendation Tool Section -->
+  <section id="recommendation-tool" class="py-16 bg-gray-50">
+    <div class="container mx-auto px-6">
+      <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-md overflow-hidden">
+        <div class="md:flex">
+          <div class="md:w-1/2 bg-primary p-8 text-white flex items-center">
+            <div>
+              <h2 class="text-2xl font-bold mb-4">Where Should I Sell This?</h2>
+              <p class="mb-6">Tell us about your product and we'll recommend the best platforms to reach your target customers in Kenya.</p>
+              <div class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                <span>100% free to use</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="md:w-1/2 p-8">
+            <form id="recommendationForm" class="space-y-4">
+              <div>
+                <label for="productType" class="block font-medium mb-2 text-gray-700">What are you selling?</label>
+                <select id="productType" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                  <option value="">-- Select --</option>
+                  <option value="physical">Physical Item (clothes, phone covers)</option>
+                  <option value="digital">Digital Service (design, tutoring)</option>
+                  <option value="skill">Skill/Gig (plumbing, DJ)</option>
+                  <option value="snacks">Snacks/Food</option>
+                </select>
+              </div>
+              
+              <div>
+                <label for="targetBuyer" class="block font-medium mb-2 text-gray-700">Target Buyer:</label>
+                <select id="targetBuyer" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                  <option value="">-- Select --</option>
+                  <option value="local">Local Area</option>
+                  <option value="city">City-wide (e.g., Nairobi)</option>
+                  <option value="online">Online Audience</option>
+                </select>
+              </div>
+              
+              <div>
+                <label for="budget" class="block font-medium mb-2 text-gray-700">Advertising Budget:</label>
+                <select id="budget" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                  <option value="">-- Select --</option>
+                  <option value="none">None (Free only)</option>
+                  <option value="small">Small (Under KSh 500)</option>
+                  <option value="flexible">Flexible (Paid ads OK)</option>
+                </select>
+              </div>
+              
+              <button type="submit" class="w-full bg-primary text-white py-3 px-4 rounded-lg hover:bg-secondary transition font-medium">
+                Get Recommendations
+              </button>
+            </form>
+            
+            <div id="results" class="mt-6 space-y-4"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center text-dark mb-12">What Our Users Say</h2>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Testimonial 1 -->
+        <div class="border border-gray-200 p-6 rounded-xl">
+          <div class="flex items-center mb-4">
+            <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="User" class="w-12 h-12 rounded-full mr-4">
+            <div>
+              <h4 class="font-bold">Wanjiku M.</h4>
+              <p class="text-gray-500 text-sm">Nairobi</p>
+            </div>
+          </div>
+          <p class="text-gray-600">"Pocket-Market helped me discover WhatsApp groups I never knew existed. My mandazi business doubled in just 2 weeks!"</p>
+          <div class="flex mt-4 text-yellow-400">
+            ★ ★ ★ ★ ★
+          </div>
+        </div>
+        
+        <!-- Testimonial 2 -->
+        <div class="border border-gray-200 p-6 rounded-xl">
+          <div class="flex items-center mb-4">
+            <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="User" class="w-12 h-12 rounded-full mr-4">
+            <div>
+              <h4 class="font-bold">Kamau K.</h4>
+              <p class="text-gray-500 text-sm">Mombasa</p>
+            </div>
+          </div>
+          <p class="text-gray-600">"The platform recommendations saved me so much time. I stopped wasting money on Facebook ads that weren't working."</p>
+          <div class="flex mt-4 text-yellow-400">
+            ★ ★ ★ ★ ☆
+          </div>
+        </div>
+        
+        <!-- Testimonial 3 -->
+        <div class="border border-gray-200 p-6 rounded-xl">
+          <div class="flex items-center mb-4">
+            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="User" class="w-12 h-12 rounded-full mr-4">
+            <div>
+              <h4 class="font-bold">Amina S.</h4>
+              <p class="text-gray-500 text-sm">Kisumu</p>
+            </div>
+          </div>
+          <p class="text-gray-600">"As a student selling phone covers, Pocket-Market's tips helped me optimize my Jiji listings. My sales increased by 40%!"</p>
+          <div class="flex mt-4 text-yellow-400">
+            ★ ★ ★ ★ ★
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Listings Section -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center text-dark mb-12">Featured Listings</h2>
+      <div id="products" class="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        <div class="bg-white rounded-xl shadow-md p-6 flex flex-col">
+        <img src="https://static.wixstatic.com/media/29e227_9304f57d58594a3096472fc3eb49a4ac~mv2.jpg/v1/fill/w_750,h_1001,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/29e227_9304f57d58594a3096472fc3eb49a4ac~mv2.jpg" alt="Beaded Maasai Bracelets - Kenyan" class="h-40 object-cover mb-4 mx-auto rounded-lg">
+          <h3 class="font-bold text-lg mb-2">Beaded Maasai Bracelets</h3>
+          <p class="text-gray-600 mb-2">Handmade colorful bracelets by Nairobi youth. Perfect for casual wear and gifts.</p>
+          <div class="mt-auto flex items-center justify-between">
+            <span class="text-primary font-bold text-xl">KSh 250</span>
+            <a href="#" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-secondary transition text-sm">View</a>
+          </div>
+        </div>
+        <div class="bg-white rounded-xl shadow-md p-6 flex flex-col">
+          <img src="https://i.etsystatic.com/22354396/r/il/80cae8/5927971794/il_1588xN.5927971794_3c9d.jpg" alt="Custom Phone Covers" class="h-40 object-cover mb-4 mx-auto rounded-lg">
+          <h3 class="font-bold text-lg mb-2">Custom Phone Covers</h3>
+          <p class="text-gray-600 mb-2">Trendy, hand-painted phone covers made by campus students.</p>
+          <div class="mt-auto flex items-center justify-between">
+            <span class="text-primary font-bold text-xl">KSh 400</span>
+            <a href="#" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-secondary transition text-sm">View</a>
+          </div>
+        </div>
+        <div class="bg-white rounded-xl shadow-md p-6 flex flex-col">
+          <img src="https://i.ebayimg.com/images/g/CUcAAOSw0cdk2unh/s-l1600.webp" alt="Handmade Ankara Tote Bags" class="h-40 object-cover mb-4 mx-auto rounded-lg">
+          <h3 class="font-bold text-lg mb-2">Handmade Ankara Tote Bags</h3>
+          <p class="text-gray-600 mb-2">Eco-friendly Ankara tote bags crafted by young artisans. Stylish and practical for everyday use.</p>
+          <div class="mt-auto flex items-center justify-between">
+            <span class="text-primary font-bold text-xl">KSh 350</span>
+            <a href="#" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-secondary transition text-sm">View</a>
+          </div>
+        </div>
+        <div class="bg-white rounded-xl shadow-md p-6 flex flex-col">
+          <img src="https://www.keswickbooks.com/cdn/shop/products/IMG-20200919-WA0049_1_600x.jpg?v=1600502264" alt="Personalized Keyholders" class="h-40 object-cover mb-4 mx-auto rounded-lg">
+          <h3 class="font-bold text-lg mb-2">Personalized Keyholders</h3>
+          <p class="text-gray-600 mb-2">Unique wooden keyholders, hand-carved and painted by young artisans.</p>
+          <div class="mt-auto flex items-center justify-between">
+            <span class="text-primary font-bold text-xl">KSh 200</span>
+            <a href="#" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-secondary transition text-sm">View</a>
+          </div>
+        </div>
+        <div class="bg-white rounded-xl shadow-md p-6 flex flex-col">
+          <img src="https://graphicdesignjunction.com/wp-content/uploads/2012/04/poster-designs-3.jpg" alt="Graphic Design Posters" class="h-40 object-cover mb-4 mx-auto rounded-lg">
+          <h3 class="font-bold text-lg mb-2">Graphic Design Posters</h3>
+          <p class="text-gray-600 mb-2">Custom digital posters for events, designed by student creatives.</p>
+          <div class="mt-auto flex items-center justify-between">
+            <span class="text-primary font-bold text-xl">KSh 350</span>
+            <a href="#" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-secondary transition text-sm">View</a>
+          </div>
+        </div>
+        <div class="bg-white rounded-xl shadow-md p-6 flex flex-col">
+          <img src="https://creationsbycourtney.com/wp-content/uploads/2023/09/Antonios-Bucket-Hat-Blog-Banner.png" alt="Crochet Bucket Hats" class="h-40 object-cover mb-4 mx-auto rounded-lg">
+          <h3 class="font-bold text-lg mb-2">Crochet Bucket Hats</h3>
+          <p class="text-gray-600 mb-2">Trendy crochet hats, handmade by youth groups in Kisumu.</p>
+          <div class="mt-auto flex items-center justify-between">
+            <span class="text-primary font-bold text-xl">KSh 500</span>
+            <a href="#" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-secondary transition text-sm">View</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seller Dashboard (Hidden when logged out) -->
+  <section id="sellerDashboard" class="hidden py-16 bg-white">
+    <div class="container mx-auto px-6">
+      <div class="max-w-4xl mx-auto">
+        <div class="flex justify-between items-center mb-8">
+          <h2 class="text-2xl font-bold">Welcome back, <span id="userEmail" class="text-primary"></span>!</h2>
+          <button id="addProductBtn" class="bg-primary text-white px-6 py-2 rounded-lg hover:bg-secondary transition">
+            + Add Product
+          </button>
+        </div>
+        
+        <div id="userProducts" class="bg-gray-50 rounded-xl p-6">
+          <h3 class="font-bold text-lg mb-6">Your Listed Products</h3>
+          <div id="userProductsList" class="space-y-4"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="py-16 bg-primary text-white">
+    <div class="container mx-auto px-6 text-center">
+      <h2 class="text-3xl font-bold mb-6">Ready to Sell Smarter?</h2>
+      <p class="text-xl mb-8 max-w-2xl mx-auto">Join thousands of Kenyan entrepreneurs boosting their sales with Pocket-Market</p>
+      <button id="ctaSignupBtn" class="bg-white text-primary font-bold px-8 py-3 rounded-lg hover:bg-gray-100 transition">Get Started for Free</button>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white py-12">
+    <div class="container mx-auto px-6">
+      <div class="grid md:grid-cols-4 gap-8">
+        <div>
+          <div class="flex items-center space-x-2 mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+            </svg>
+            <span class="text-xl font-bold">Pocket-Market</span>
+          </div>
+          <p class="text-gray-300">Helping Kenyan entrepreneurs sell smarter since 2025.</p>
+          <a href="shop.html" class="inline-block mt-4 bg-primary text-white px-4 py-2 rounded-lg hover:bg-secondary transition font-semibold">Shop Now</a>
+        </div>
+        
+        <div>
+          <h3 class="font-bold text-lg mb-4">Quick Links</h3>
+          <ul class="space-y-2">
+            <li><a href="index.html" class="text-gray-300 hover:text-primary transition">Home</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-primary transition">How It Works</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-primary transition">Success Stories</a></li>
+            <li><a href="contact.html" class="text-gray-300 hover:text-primary transition">Contact Us</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h3 class="font-bold text-lg mb-4">Popular Categories</h3>
+          <ul class="space-y-2">
+            <li><a href="#products" class="text-gray-300 hover:text-primary transition">Beaded Bracelets</a></li>
+            <li><a href="#products" class="text-gray-300 hover:text-primary transition">Ankara Bags</a></li>
+            <li><a href="#products" class="text-gray-300 hover:text-primary transition">Crochet Hats</a></li>
+            <li><a href="#products" class="text-gray-300 hover:text-primary transition">Wooden Carvings</a></li>
+          </ul>
+        </div> 
+        
+        <div>
+          <h3 class="font-bold text-lg mb-4">Contact</h3>
+          <ul class="space-y-2">
+            <li class="flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-primary" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+              </svg>
+              <span>Nairobi, Kenya</span>
+            </li>
+            <li class="flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-primary" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+              </svg>
+              <span>hello@pocket-market.co.ke</span>
+            </li>
+            <li class="flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-primary" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+              </svg>
+              <span>+254 780 482290</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+        <p>© 2025 Pocket Market. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Auth Modal -->
+  <div id="authModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center p-4">
+    <div class="bg-white rounded-xl shadow-xl w-full max-w-md overflow-hidden">
+      <!-- Close Button -->
+      <div class="flex justify-end p-2">
+        <button id="closeAuthModal" class="text-gray-500 hover:text-gray-700">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+      <!-- Auth Container -->
+      <div class="px-8 pb-8">
+        <!-- Tab Buttons -->
+        <div class="flex border-b">
+          <button id="loginTabBtn" class="flex-1 py-4 font-medium text-primary border-b-2 border-primary">
+            Log In
+          </button>
+          <button id="signupTabBtn" class="flex-1 py-4 font-medium text-gray-500">
+            Sign Up
+          </button>
+        </div>
+        <!-- Login Form -->
+        <form id="loginForm" class="pt-6 space-y-4">
+          <div>
+            <label for="loginEmail" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+            <input type="email" id="loginEmail" required
+                   class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+            <p id="loginEmailError" class="text-red-500 text-xs mt-1 hidden">Please enter a valid email</p>
+          </div>
+          <div>
+            <label for="loginPassword" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+            <input type="password" id="loginPassword" required minlength="6"
+                   class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+            <p id="loginPasswordError" class="text-red-500 text-xs mt-1 hidden">Password must be 6+ characters</p>
+          </div>
+          <div class="flex items-center justify-between">
+            <button type="button" id="forgotPasswordBtn" class="text-sm text-primary hover:underline">
+              Forgot password?
+            </button>
+          </div>
+          <button type="submit" class="w-full bg-primary text-white py-3 rounded-lg hover:bg-secondary transition font-medium">
+            Log In
+          </button>
+          <p id="loginError" class="text-red-500 text-center hidden"></p>
+        </form>
+        <!-- Signup Form -->
+        <form id="signupForm" class="pt-6 space-y-4 hidden">
+          <div>
+            <label for="signupEmail" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+            <input type="email" id="signupEmail" required
+                   class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+            <p id="signupEmailError" class="text-red-500 text-xs mt-1 hidden">Please enter a valid email</p>
+          </div>
+          <div>
+            <label for="signupPassword" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+            <input type="password" id="signupPassword" required minlength="6"
+                   class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+            <p id="signupPasswordError" class="text-red-500 text-xs mt-1 hidden">Password must be 6+ characters</p>
+          </div>
+          <div>
+            <label for="signupConfirmPassword" class="block text-sm font-medium text-gray-700 mb-1">Confirm Password</label>
+            <input type="password" id="signupConfirmPassword" required
+                   class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+            <p id="signupConfirmError" class="text-red-500 text-xs mt-1 hidden">Passwords don't match</p>
+          </div>
+          <button type="submit" class="w-full bg-primary text-white py-3 rounded-lg hover:bg-secondary transition font-medium">
+            Create Account
+          </button>
+          <p id="signupError" class="text-red-500 text-center hidden"></p>
+        </form>
+        <!-- Forgot Password Form -->
+        <div id="forgotPasswordForm" class="pt-6 space-y-4 hidden">
+          <p class="text-gray-600">Enter your email to receive a password reset link</p>
+          <div>
+            <label for="resetEmail" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+            <input type="email" id="resetEmail" required
+                   class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+            <p id="resetEmailError" class="text-red-500 text-xs mt-1 hidden">Please enter a valid email</p>
+          </div>
+          <button id="sendResetBtn" class="w-full bg-primary text-white py-3 rounded-lg hover:bg-secondary transition font-medium">
+            Send Reset Link
+          </button>
+          <button id="backToLoginBtn" class="w-full text-primary mt-2">
+            ← Back to login
+          </button>
+          <p id="resetMessage" class="text-green-500 text-center hidden"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+// Auth UI Controller
+class AuthUI {
+  constructor() {
+    this.initElements();
+    this.initEventListeners();
+    this.currentForm = 'login';
+  }
+
+  initElements() {
+    // Modal elements
+    this.modal = document.getElementById('authModal');
+    this.closeBtn = document.getElementById('closeAuthModal');
+    
+    // Tab buttons
+    this.loginTab = document.getElementById('loginTabBtn');
+    this.signupTab = document.getElementById('signupTabBtn');
+    
+    // Forms
+    this.loginForm = document.getElementById('loginForm');
+    this.signupForm = document.getElementById('signupForm');
+    this.forgotPasswordForm = document.getElementById('forgotPasswordForm');
+    
+    // Other buttons
+    this.forgotPasswordBtn = document.getElementById('forgotPasswordBtn');
+    this.backToLoginBtn = document.getElementById('backToLoginBtn');
+    this.sendResetBtn = document.getElementById('sendResetBtn');
+    
+    // Error messages
+    this.loginError = document.getElementById('loginError');
+    this.signupError = document.getElementById('signupError');
+    this.resetMessage = document.getElementById('resetMessage');
+  }
+
+  initEventListeners() {
+    // Modal controls
+    this.closeBtn.addEventListener('click', () => this.closeModal());
+    
+    // Tab switching
+    this.loginTab.addEventListener('click', () => this.showForm('login'));
+    this.signupTab.addEventListener('click', () => this.showForm('signup'));
+    
+    // Form navigation
+    this.forgotPasswordBtn.addEventListener('click', () => this.showForm('forgot'));
+    this.backToLoginBtn.addEventListener('click', () => this.showForm('login'));
+    
+    // Form submissions
+    this.loginForm.addEventListener('submit', (e) => this.handleLogin(e));
+    this.signupForm.addEventListener('submit', (e) => this.handleSignup(e));
+    this.sendResetBtn.addEventListener('click', () => this.handlePasswordReset());
+    
+    // Input validation
+    this.initInputValidation();
+  }
+
+  showModal() {
+    this.modal.classList.remove('hidden');
+    document.body.classList.add('overflow-hidden');
+  }
+
+  closeModal() {
+    this.modal.classList.add('hidden');
+    document.body.classList.remove('overflow-hidden');
+    this.resetForms();
+  }
+
+  showForm(formType) {
+    this.currentForm = formType;
+    
+    // Reset all forms
+    this.loginForm.classList.add('hidden');
+    this.signupForm.classList.add('hidden');
+    this.forgotPasswordForm.classList.add('hidden');
+    
+    // Reset tab styles
+    this.loginTab.classList.remove('text-primary', 'border-primary');
+    this.loginTab.classList.add('text-gray-500');
+    this.signupTab.classList.remove('text-primary', 'border-primary');
+    this.signupTab.classList.add('text-gray-500');
+    
+    // Show selected form
+    switch(formType) {
+      case 'login':
+        this.loginForm.classList.remove('hidden');
+        this.loginTab.classList.remove('text-gray-500');
+        this.loginTab.classList.add('text-primary', 'border-primary');
+        break;
+      case 'signup':
+        this.signupForm.classList.remove('hidden');
+        this.signupTab.classList.remove('text-gray-500');
+        this.signupTab.classList.add('text-primary', 'border-primary');
+        break;
+      case 'forgot':
+        this.forgotPasswordForm.classList.remove('hidden');
+        break;
+    }
+    
+    // Clear errors
+    this.loginError.classList.add('hidden');
+    this.signupError.classList.add('hidden');
+    this.resetMessage.classList.add('hidden');
+  }
+
+  resetForms() {
+    this.loginForm.reset();
+    this.signupForm.reset();
+    this.forgotPasswordForm.reset();
+    this.showForm('login');
+  }
+
+  initInputValidation() {
+    // Email validation
+    const validateEmail = (email) => {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    };
+
+    // Login form validation
+    document.getElementById('loginEmail').addEventListener('input', (e) => {
+      const errorEl = document.getElementById('loginEmailError');
+      errorEl.classList.toggle('hidden', validateEmail(e.target.value));
+    });
+
+    document.getElementById('loginPassword').addEventListener('input', (e) => {
+      const errorEl = document.getElementById('loginPasswordError');
+      errorEl.classList.toggle('hidden', e.target.value.length >= 6);
+    });
+
+    // Signup form validation
+    document.getElementById('signupEmail').addEventListener('input', (e) => {
+      const errorEl = document.getElementById('signupEmailError');
+      errorEl.classList.toggle('hidden', validateEmail(e.target.value));
+    });
+
+    document.getElementById('signupPassword').addEventListener('input', (e) => {
+      const errorEl = document.getElementById('signupPasswordError');
+      errorEl.classList.toggle('hidden', e.target.value.length >= 6);
+    });
+
+    document.getElementById('signupConfirmPassword').addEventListener('input', (e) => {
+      const password = document.getElementById('signupPassword').value;
+      const errorEl = document.getElementById('signupConfirmError');
+      errorEl.classList.toggle('hidden', e.target.value === password);
+    });
+
+    // Reset password validation
+    document.getElementById('resetEmail').addEventListener('input', (e) => {
+      const errorEl = document.getElementById('resetEmailError');
+      errorEl.classList.toggle('hidden', validateEmail(e.target.value));
+    });
+  }
+
+  async handleLogin(e) {
+    e.preventDefault();
+    
+    const email = document.getElementById('loginEmail').value;
+    const password = document.getElementById('loginPassword').value;
+    
+    // Simple validation
+    if (!email || !password) {
+      this.loginError.textContent = "Please fill in all fields";
+      this.loginError.classList.remove('hidden');
+      return;
+    }
+    
+    // Mock login - replace with actual auth
+    try {
+      const user = state.users.find(u => u.email === email && u.password === password);
+      if (user) {
+        state.currentUser = { email: user.email };
+        localStorage.setItem('currentUser', JSON.stringify(state.currentUser));
+        this.closeModal();
+        updateAuthUI();
+      } else {
+        throw new Error("Invalid email or password");
+      }
+    } catch (error) {
+      this.loginError.textContent = error.message;
+      this.loginError.classList.remove('hidden');
+    }
+  }
+
+  async handleSignup(e) {
+    e.preventDefault();
+    
+    const email = document.getElementById('signupEmail').value;
+    const password = document.getElementById('signupPassword').value;
+    const confirmPassword = document.getElementById('signupConfirmPassword').value;
+    
+    // Validation
+    if (password !== confirmPassword) {
+      this.signupError.textContent = "Passwords don't match";
+      this.signupError.classList.remove('hidden');
+      return;
+    }
+    
+    // Check if user exists
+    if (state.users.some(u => u.email === email)) {
+      this.signupError.textContent = "Email already in use";
+      this.signupError.classList.remove('hidden');
+      return;
+    }
+    
+    // Mock signup - replace with actual auth
+    try {
+      state.users.push({
+        email,
+        password,
+        products: [],
+        createdAt: new Date().toISOString()
+      });
+      localStorage.setItem('mockUsers', JSON.stringify(state.users));
+      
+      state.currentUser = { email };
+      localStorage.setItem('currentUser', JSON.stringify(state.currentUser));
+      
+      this.closeModal();
+      updateAuthUI();
+    } catch (error) {
+      this.signupError.textContent = "Signup failed. Please try again.";
+      this.signupError.classList.remove('hidden');
+    }
+  }
+
+  handlePasswordReset() {
+    const email = document.getElementById('resetEmail').value;
+    
+    if (!email) {
+      document.getElementById('resetEmailError').classList.remove('hidden');
+      return;
+    }
+    
+    // Mock reset - in real app would send email
+    this.resetMessage.textContent = `Password reset link sent to ${email}`;
+    this.resetMessage.classList.remove('hidden');
+    
+    setTimeout(() => {
+      this.showForm('login');
+    }, 3000);
+  }
+}
+
+// Initialize Auth UI when DOM loads
+document.addEventListener('DOMContentLoaded', () => {
+  const authUI = new AuthUI();
+  
+  // Make auth buttons work
+  document.getElementById('signupBtn').addEventListener('click', () => {
+    authUI.showModal();
+    authUI.showForm('signup');
+  });
+  
+  document.getElementById('loginBtn').addEventListener('click', () => {
+    authUI.showModal();
+    authUI.showForm('login');
+  });
+  
+  document.getElementById('ctaSignupBtn').addEventListener('click', () => {
+    authUI.showModal();
+    authUI.showForm('signup');
+  });
+});
+  </script>
+</body>
+</html>
