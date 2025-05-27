@@ -3,15 +3,52 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>How Pocket Market Works</title>
+  <title>How It Works - Pocket Market</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Poppins', 'sans-serif'],
+          },
+          colors: {
+            primary: '#10B981',
+            secondary: '#047857',
+            dark: '#1F2937',
+            light: '#F3F4F6',
+          }
+        }
+      }
+    }
+  </script>
   <style>
-    body { font-family: 'Poppins', sans-serif; }
+    .how-it-works-step {
+      position: relative;
+      padding-left: 60px;
+    }
+    .step-number {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 40px;
+      height: 40px;
+      background-color: #10B981;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+    .tab-button.active {
+      background-color: #10B981;
+      color: white;
+    }
   </style>
 </head>
-<body class="bg-gray-50 text-dark">
-
+<body class="font-sans bg-gray-50">
   <!-- Navigation -->
   <nav class="bg-white shadow-md">
     <div class="container mx-auto px-6 py-3">
@@ -20,90 +57,258 @@
           <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
           </svg>
-          <span class="font-bold text-xl text-primary">Pocket Market</span>
+          <span class="text-xl font-bold text-dark">Pocket-Market</span>
         </div>
+        
         <div class="hidden md:flex items-center space-x-8">
           <a href="index.html" class="text-dark hover:text-primary">Home</a>
-          <a href="how-it-works.html" class="text-dark hover:text-primary">How It Works</a>
-          <a href="#testimonials" class="text-dark hover:text-primary">Success Stories</a>
-          <a href="#contact" class="text-dark hover:text-primary">Contact</a>
+          <a href="how-it-works.html" class="text-primary font-medium">How It Works</a>
+          <a href="shop.html" class="text-dark hover:text-primary">Shop</a>
+          <a href="sell.html" class="text-dark hover:text-primary">Sell</a>
+          <a href="contact.html" class="text-dark hover:text-primary">Contact</a>
+          <div id="authButtons">
+            <button id="signupBtn" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-secondary transition">Sign Up</button>
+            <button id="loginBtn" class="text-dark px-4 py-2 rounded-lg hover:text-primary transition">Log In</button>
+            <button id="logoutBtn" class="hidden bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition">Log Out</button>
+          </div>
         </div>
+        
+        <button class="md:hidden focus:outline-none">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
       </div>
     </div>
   </nav>
 
-  <section class="py-16 bg-gradient-to-r from-primary to-secondary text-white text-center">
-    <div class="container mx-auto px-6">
-      <h1 class="text-4xl font-bold mb-4">How Pocket Market Works</h1>
-      <p class="text-lg max-w-2xl mx-auto">Pocket Market is a platform that empowers Kenyan youth to sell their hand-crafted products online, easily and safely. Here’s how you can get started and succeed!</p>
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-r from-primary to-secondary text-white py-20">
+    <div class="container mx-auto px-6 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6">How Pocket-Market Works</h1>
+      <p class="text-xl mb-8 max-w-2xl mx-auto">Discover how to buy from local sellers or start selling your products with our smart marketplace</p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="#for-buyers" class="bg-white text-primary font-bold px-8 py-3 rounded-lg hover:bg-gray-100 transition">I'm a Buyer</a>
+        <a href="#for-sellers" class="border-2 border-white text-white font-bold px-8 py-3 rounded-lg hover:bg-white hover:text-primary transition">I'm a Seller</a>
+      </div>
     </div>
   </section>
 
-  <section class="py-16">
+  <!-- For Buyers Section -->
+  <section id="for-buyers" class="py-16 bg-white">
     <div class="container mx-auto px-6">
-      <div class="grid md:grid-cols-3 gap-10">
-        <div class="bg-white rounded-xl shadow-md p-8 flex flex-col items-center">
-          <div class="bg-primary text-white rounded-full h-16 w-16 flex items-center justify-center mb-4 text-2xl font-bold">1</div>
-          <h2 class="font-bold text-xl mb-2">Sign Up & Create Your Account</h2>
-          <p class="text-gray-600">Register with your email and set up your seller profile. It’s free and takes less than 2 minutes.</p>
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-dark mb-4">For Buyers</h2>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">Find great deals from local sellers and trusted vendors across Kenya</p>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Step 1 -->
+        <div class="how-it-works-step">
+          <div class="step-number">1</div>
+          <h3 class="text-xl font-bold mb-2">Browse or Search</h3>
+          <p class="text-gray-600">Explore products by category or use our smart search to find exactly what you need. Filter by location, price range, and seller ratings.</p>
         </div>
-        <div class="bg-white rounded-xl shadow-md p-8 flex flex-col items-center">
-          <div class="bg-primary text-white rounded-full h-16 w-16 flex items-center justify-center mb-4 text-2xl font-bold">2</div>
-          <h2 class="font-bold text-xl mb-2">List Your Hand-Crafted Products</h2>
-          <p class="text-gray-600">Add details, photos, and prices for your unique products—like jewelry, art, crafts, or fashion. Your listings will be visible to buyers across Kenya.</p>
+        
+        <!-- Step 2 -->
+        <div class="how-it-works-step">
+          <div class="step-number">2</div>
+          <h3 class="text-xl font-bold mb-2">Check Product Details</h3>
+          <p class="text-gray-600">View high-quality photos, detailed descriptions, seller information, and customer reviews. Our platform verifies all listings for authenticity.</p>
         </div>
-        <div class="bg-white rounded-xl shadow-md p-8 flex flex-col items-center">
-          <div class="bg-primary text-white rounded-full h-16 w-16 flex items-center justify-center mb-4 text-2xl font-bold">3</div>
-          <h2 class="font-bold text-xl mb-2">Connect & Sell</h2>
-          <p class="text-gray-600">Buyers contact you directly through the platform. Arrange payment and delivery in a way that works for both of you. Get tips and support from our community!</p>
+        
+        <!-- Step 3 -->
+        <div class="how-it-works-step">
+          <div class="step-number">3</div>
+          <h3 class="text-xl font-bold mb-2">Purchase or Message</h3>
+          <p class="text-gray-600">Buy directly through our secure checkout or message the seller for more details. Choose between delivery or local pickup options.</p>
+        </div>
+      </div>
+      
+      <div class="mt-12 bg-gray-50 p-6 rounded-lg">
+        <h3 class="text-xl font-bold mb-4">Buyer Benefits</h3>
+        <ul class="space-y-3">
+          <li class="flex items-start">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+            </svg>
+            <span><strong>Verified Sellers:</strong> All sellers undergo our verification process</span>
+          </li>
+          <li class="flex items-start">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+            </svg>
+            <span><strong>Secure Payments:</strong> Multiple payment options including M-Pesa</span>
+          </li>
+          <li class="flex items-start">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+            </svg>
+            <span><strong>Local Focus:</strong> Support Kenyan businesses and reduce shipping costs</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- For Sellers Section -->
+  <section id="for-sellers" class="py-16 bg-gray-50">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-dark mb-4">For Sellers</h2>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">Grow your business by reaching thousands of potential customers across Kenya</p>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8 mb-12">
+        <!-- Step 1 -->
+        <div class="how-it-works-step">
+          <div class="step-number">1</div>
+          <h3 class="text-xl font-bold mb-2">Create Your Seller Account</h3>
+          <p class="text-gray-600">Sign up as a seller, complete your profile, and verify your identity. This builds trust with potential buyers.</p>
+        </div>
+        
+        <!-- Step 2 -->
+        <div class="how-it-works-step">
+          <div class="step-number">2</div>
+          <h3 class="text-xl font-bold mb-2">List Your Products</h3>
+          <p class="text-gray-600">Use our simple listing tool to add products with photos, descriptions, and pricing. Get platform recommendations for optimal visibility.</p>
+        </div>
+        
+        <!-- Step 3 -->
+        <div class="how-it-works-step">
+          <div class="step-number">3</div>
+          <h3 class="text-xl font-bold mb-2">Manage Sales</h3>
+          <p class="text-gray-600">Receive orders, communicate with buyers, and get paid securely. Track your sales performance in your dashboard.</p>
+        </div>
+      </div>
+      
+      <div class="bg-white p-6 rounded-lg shadow-sm">
+        <h3 class="text-xl font-bold mb-4">Seller Benefits</h3>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <h4 class="font-bold mb-2 text-primary">Smart Recommendations</h4>
+            <p class="text-gray-600">Our system analyzes your products and suggests the best platforms (Facebook, WhatsApp groups, etc.) to maximize your sales.</p>
+          </div>
+          <div>
+            <h4 class="font-bold mb-2 text-primary">Low Fees</h4>
+            <p class="text-gray-600">Keep more of your profits with our competitive commission rates compared to other marketplaces.</p>
+          </div>
+          <div>
+            <h4 class="font-bold mb-2 text-primary">Built-in Marketing</h4>
+            <p class="text-gray-600">Get featured in our newsletters, social media, and targeted promotions to the right buyers.</p>
+          </div>
+          <div>
+            <h4 class="font-bold mb-2 text-primary">Seller Support</h4>
+            <p class="text-gray-600">Access our seller education resources and dedicated support team to help grow your business.</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="py-12 bg-white">
+  <!-- Success Stories -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-dark mb-4">Success Stories</h2>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">Hear from sellers who've grown their businesses with Pocket-Market</p>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Story 1 -->
+        <div class="bg-gray-50 p-6 rounded-lg">
+          <div class="flex items-center mb-4">
+            <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah" class="w-12 h-12 rounded-full mr-4">
+            <div>
+              <h4 class="font-bold">Sarah K.</h4>
+              <p class="text-sm text-gray-500">Nairobi - Fashion</p>
+            </div>
+          </div>
+          <p class="text-gray-600 italic mb-4">"Pocket-Market helped me triple my clothing business sales by connecting me with buyers across Kenya. The platform recommendations showed me where to focus my efforts."</p>
+          <div class="flex text-yellow-400">
+            ★ ★ ★ ★ ★
+          </div>
+        </div>
+        
+        <!-- Story 2 -->
+        <div class="bg-gray-50 p-6 rounded-lg">
+          <div class="flex items-center mb-4">
+            <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="James" class="w-12 h-12 rounded-full mr-4">
+            <div>
+              <h4 class="font-bold">James M.</h4>
+              <p class="text-sm text-gray-500">Mombasa - Accessories</p>
+            </div>
+          </div>
+          <p class="text-gray-600 italic mb-4">"As a student selling phone accessories, Pocket-Market low fees and local focus helped me build a sustainable side business with minimal overhead."</p>
+          <div class="flex text-yellow-400">
+            ★ ★ ★ ★ ☆
+          </div>
+        </div>
+        
+        <!-- Story 3 -->
+        <div class="bg-gray-50 p-6 rounded-lg">
+          <div class="flex items-center mb-4">
+            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Amina" class="w-12 h-12 rounded-full mr-4">
+            <div>
+              <h4 class="font-bold">Amina W.</h4>
+              <p class="text-sm text-gray-500">Kisumu - Food</p>
+            </div>
+          </div>
+          <p class="text-gray-600 italic mb-4">"My homemade snacks business went from serving just my neighborhood to supplying orders across three counties thanks to Pocket-Market platform."</p>
+          <div class="flex text-yellow-400">
+            ★ ★ ★ ★ ★
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-16 bg-primary text-white">
     <div class="container mx-auto px-6 text-center">
-      <h2 class="text-2xl font-bold mb-4">Why Use Pocket Market?</h2>
-      <ul class="max-w-xl mx-auto text-gray-700 text-left space-y-3">
-        <li>✔️ 100% free for youth sellers</li>
-        <li>✔️ Safe, supportive community</li>
-        <li>✔️ Tips and resources for growing your business</li>
-        <li>✔️ Showcase your talent to buyers across Kenya</li>
-      </ul>
+      <h2 class="text-3xl font-bold mb-6">Ready to Get Started?</h2>
+      <p class="text-xl mb-8 max-w-2xl mx-auto">Join thousands of Kenyan buyers and sellers growing together on Pocket-Market</p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="shop.html" class="bg-white text-primary font-bold px-8 py-3 rounded-lg hover:bg-gray-100 transition">Start Shopping</a>
+        <a href="sell.html" class="border-2 border-white text-white font-bold px-8 py-3 rounded-lg hover:bg-white hover:text-primary transition">Start Selling</a>
+      </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-dark text-white py-12" id="contact">
+  <footer class="bg-dark text-white py-12">
     <div class="container mx-auto px-6">
       <div class="grid md:grid-cols-4 gap-8">
         <div>
           <div class="flex items-center space-x-2 mb-4">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
             </svg>
-            <span class="font-bold text-xl text-primary">Pocket Market</span>
+            <span class="text-xl font-bold">Rodstar</span>
           </div>
           <p class="text-gray-300">Helping Kenyan entrepreneurs sell smarter since 2025.</p>
         </div>
+        
         <div>
           <h3 class="font-bold text-lg mb-4">Quick Links</h3>
           <ul class="space-y-2">
             <li><a href="index.html" class="text-gray-300 hover:text-primary transition">Home</a></li>
-            <li><a href="how-it-works.html" class="text-gray-300 hover:text-primary transition">How It Works</a></li>
-            <li><a href="#testimonials" class="text-gray-300 hover:text-primary transition">Success Stories</a></li>
-            <li><a href="#contact" class="text-gray-300 hover:text-primary transition">Contact Us</a></li>
+            <li><a href="how-it-works.html" class="text-primary">How It Works</a></li>
+            <li><a href="shop.html" class="text-gray-300 hover:text-primary transition">Shop</a></li>
+            <li><a href="sell.html" class="text-gray-300 hover:text-primary transition">Sell</a></li>
           </ul>
         </div>
+        
         <div>
-          <h3 class="font-bold text-lg mb-4">Popular Categories</h3>
+          <h3 class="font-bold text-lg mb-4">Resources</h3>
           <ul class="space-y-2">
-            <li><a href="#" class="text-gray-300 hover:text-primary transition">Clothing</a></li>
-            <li><a href="#" class="text-gray-300 hover:text-primary transition">Electronics</a></li>
-            <li><a href="#" class="text-gray-300 hover:text-primary transition">Food</a></li>
-            <li><a href="#" class="text-gray-300 hover:text-primary transition">Services</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-primary transition">Buyer Guide</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-primary transition">Seller Handbook</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-primary transition">FAQs</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-primary transition">Blog</a></li>
           </ul>
         </div>
+        
         <div>
           <h3 class="font-bold text-lg mb-4">Contact</h3>
           <ul class="space-y-2">
@@ -114,19 +319,47 @@
               <span>Nairobi, Kenya</span>
             </li>
             <li class="flex items-center">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12a4 4 0 01-8 0 4 4 0 018 0z" />
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 16v2m0 4h.01" />
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-primary" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
               </svg>
-              <span>info@pocketmarket.co.ke</span>
+              <span>hello@pocketmarket.co.ke</span>
+            </li>
+            <li class="flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-primary" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+              </svg>
+              <span>+254 780 482290</span>
             </li>
           </ul>
         </div>
       </div>
-      <div class="text-center text-gray-400 mt-8">
-        &copy; 2025 Pocket Market. Empowering Kenyan youth entrepreneurs.
+      
+      <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+        <p>© 2025 Rodstar Pocket Market. All rights reserved.</p>
       </div>
     </div>
   </footer>
+
+  <script>
+    // Simple tab functionality for the CTA buttons
+    document.addEventListener('DOMContentLoaded', function() {
+      // This would be replaced with your actual auth logic
+      const authButtons = document.getElementById('authButtons');
+      const logoutBtn = document.getElementById('logoutBtn');
+      
+      // Example: Check if user is logged in
+      if (localStorage.getItem('currentUser')) {
+        document.getElementById('signupBtn').classList.add('hidden');
+        document.getElementById('loginBtn').classList.add('hidden');
+        logoutBtn.classList.remove('hidden');
+      }
+      
+      logoutBtn.addEventListener('click', function() {
+        localStorage.removeItem('currentUser');
+        window.location.href = 'index.html';
+      });
+    });
+  </script>
 </body>
 </html>
