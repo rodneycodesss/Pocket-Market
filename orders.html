@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout - Rodstar Pocket Market</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Poppins', 'sans-serif'],
+          },
+          colors: {
+            primary: '#10B981',
+            secondary: '#047857',
+            dark: '#1F2937',
+            light: '#F3F4F6',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .checkout-item:hover {
+      transform: translateY(-2px);
+    }
+    input[type="radio"]:checked + label {
+      border-color: #10B981;
+      background-color: #F0FDF4;
+    }
+  </style>
+</head>
+<body class="font-sans bg-gray-50">
+  <!-- Navigation -->
+  <nav class="bg-white shadow-md">
+    <div class="container mx-auto px-6 py-3">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center space-x-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+          </svg>
+          <span class="text-xl font-bold text-dark">Rodstar</span>
+        </div>
+        
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="index.html" class="text-dark hover:text-primary">Home</a>
+          <a href="shop.html" class="text-dark hover:text-primary">Shop</a>
+          <a href="sell.html" class="text-dark hover:text-primary">Sell</a>
+          <a href="contact.html" class="text-dark hover:text-primary">Contact</a>
+          <div id="authButtons">
+            <button id="logoutBtn" class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition">Log Out</button>
+          </div>
+        </div>
+        
+        <div class="flex items-center space-x-4">
+          <a href="cart.html" class="relative">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+            </svg>
+            <span class="absolute -top-2 -right-2 bg-primary text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">3</span>
+          </a>
+          <button class="md:hidden focus:outline-none">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Checkout Progress -->
+  <div class="bg-white shadow-sm">
+    <div class="container mx-auto px-6 py-4">
+      <div class="flex justify-between">
+        <div class="flex items-center text-primary">
+          <div class="flex items-center">
+            <div class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center">1</div>
+            <span class="ml-2 font-medium">Cart</span>
+          </div>
+          <div class="w-16 border-t-2 border-primary mx-2 mt-1"></div>
+          <div class="flex items-center">
+            <div class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center">2</div>
+            <span class="ml-2 font-medium">Details</span>
+          </div>
+          <div class="w-16 border-t-2 border-gray-300 mx-2 mt-1"></div>
+          <div class="flex items-center">
+            <div class="w-8 h-8 rounded-full border-2 border-gray-300 text-gray-400 flex items-center justify-center">3</div>
+            <span class="ml-2 text-gray-400">Payment</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Checkout Content -->
+  <main class="container mx-auto px-6 py-8">
+    <div class="flex flex-col lg:flex-row gap-8">
+      <!-- Left Column - Order Details -->
+      <div class="lg:w-2/3">
+        <h2 class="text-2xl font-bold mb-6">Delivery Information</h2>
+        
+        <form id="deliveryForm" class="space-y-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label for="firstName" class="block text-sm font-medium text-gray-700 mb-1">First Name*</label>
+              <input type="text" id="firstName" required class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary">
+            </div>
+            <div>
+              <label for="lastName" class="block text-sm font-medium text-gray-700 mb-1">Last Name*</label>
+              <input type="text" id="lastName" required class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary">
+            </div>
+          </div>
+          
+          <div>
+            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email*</label>
+            <input type="email" id="email" required class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary">
+          </div>
+          
+          <div>
+            <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number*</label>
+            <input type="tel" id="phone" required class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary">
+          </div>
+          
+          <div>
+            <label for="address" class="block text-sm font-medium text-gray-700 mb-1">Delivery Address*</label>
+            <textarea id="address" rows="3" required class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary"></textarea>
+          </div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div>
+              <label for="county" class="block text-sm font-medium text-gray-700 mb-1">County*</label>
+              <select id="county" required class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary">
+                <option value="">Select County</option>
+                <option>Nairobi</option>
+                <option>Mombasa</option>
+                <option>Kisumu</option>
+                <option>Nakuru</option>
+                <option>Eldoret</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div>
+              <label for="town" class="block text-sm font-medium text-gray-700 mb-1">Town*</label>
+              <input type="text" id="town" required class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary">
+            </div>
+            <div>
+              <label for="postalCode" class="block text-sm font-medium text-gray-700 mb-1">Postal Code</label>
+              <input type="text" id="postalCode" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary">
+            </div>
+          </div>
+          
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-3">Delivery Method*</label>
+            <div class="space-y-3">
+              <div>
+                <input type="radio" id="deliveryHome" name="deliveryMethod" value="home" checked class="hidden">
+                <label for="deliveryHome" class="block p-4 border rounded-lg cursor-pointer transition">
+                  <div class="flex items-center">
+                    <div class="flex-shrink-0 h-5 w-5 border rounded-full border-gray-300 flex items-center justify-center mr-3">
+                      <div class="h-3 w-3 rounded-full bg-primary hidden"></div>
+                    </div>
+                    <div>
+                      <h3 class="font-medium">Home Delivery</h3>
+                      <p class="text-sm text-gray-500">Delivery to your doorstep (2-3 business days)</p>
+                    </div>
+                    <div class="ml-auto font-medium">KSh 250</div>
+                  </div>
+                </label>
+              </div>
+              <div>
+                <input type="radio" id="deliveryPickup" name="deliveryMethod" value="pickup" class="hidden">
+                <label for="deliveryPickup" class="block p-4 border rounded-lg cursor-pointer transition">
+                  <div class="flex items-center">
+                    <div class="flex-shrink-0 h-5 w-5 border rounded-full border-gray-300 flex items-center justify-center mr-3">
+                      <div class="h-3 w-3 rounded-full bg-primary hidden"></div>
+                    </div>
+                    <div>
+                      <h3 class="font-medium">Pickup Station</h3>
+                      <p class="text-sm text-gray-500">Collect from nearest pickup point (1-2 business days)</p>
+                    </div>
+                    <div class="ml-auto font-medium">KSh 150</div>
+                  </div>
+                </label>
+              </div>
+            </div>
+          </div>
+        </form>
+        
+        <h2 class="text-2xl font-bold mt-12 mb-6">Payment Method</h2>
+        
+        <div class="space-y-4">
+          <div>
+            <input type="radio" id="mpesa" name="paymentMethod" value="mpesa" checked class="hidden">
+            <label for="mpesa" class="block p-4 border rounded-lg cursor-pointer transition flex items-center">
+              <span class="flex-shrink-0 h-5 w-5 border rounded-full border-gray-300 flex items-center justify-center mr-3">
+                <span class="h-3 w-3 rounded-full bg-primary hidden"></span>
+              </span>
+              <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/M-PESA_LOGO-01.svg" alt="M-Pesa" class="h-8 mr-3" style="background:white; padding:2px; border-radius:4px;">
+              <div>
+                <h3 class="font-medium">M-Pesa</h3>
+                <p class="text-sm text-gray-500">Pay via M-Pesa mobile money</p>
+              </div>
+            </label>
+          </div>
+          <div>
+            <input type="radio" id="card" name="paymentMethod" value="card" class="hidden">
+            <label for="card" class="block p-4 border rounded-lg cursor-pointer transition flex items-center">
+              <span class="flex-shrink-0 h-5 w-5 border rounded-full border-gray-300 flex items-center justify-center mr-3">
+                <span class="h-3 w-3 rounded-full bg-primary hidden"></span>
+              </span>
+              <span class="flex space-x-2 mr-3">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png" alt="Visa" class="h-5 bg-white p-1 rounded">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Mastercard-logo.png" alt="Mastercard" class="h-5 bg-white p-1 rounded">
+              </span>
+              <div>
+                <h3 class="font-medium">Credit/Debit Card</h3>
+                <p class="text-sm text-gray-500">Pay with Visa or Mastercard</p>
+              </div>
+            </label>
+          </div>
+          <div>
+            <input type="radio" id="cod" name="paymentMethod" value="cod" class="hidden">
+            <label for="cod" class="block p-4 border rounded-lg cursor-pointer transition flex items-center">
+              <span class="flex-shrink-0 h-5 w-5 border rounded-full border-gray-300 flex items-center justify-center mr-3">
+                <span class="h-3 w-3 rounded-full bg-primary hidden"></span>
+              </span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-500 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
+              </svg>
+              <div>
+                <h3 class="font-medium">Cash on Delivery</h3>
+                <p class="text-sm text-gray-500">Pay when you receive your order</p>
+              </div>
+            </label>
+          </div>
+        </div>
+        
+        <div class="mt-8 flex justify-between">
+          <a href="cart.html" class="text-primary font-medium flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+            </svg>
+            Return to Cart
+          </a>
+          <button id="continueToPayment" class="bg-primary text-white px-6 py-3 rounded-lg hover:bg-secondary transition">
+            Continue to Payment
+          </button>
+        </div>
+      </div>
+      
+      <!-- Right Column - Order Summary -->
+      <div class="lg:w-1/3">
+        <div class="bg-white rounded-lg shadow-md p-6 sticky top-4">
+          <h2 class="text-xl font-bold mb-6">Order Summary</h2>
+          
+          <div class="space-y-4 mb-6">
+            <!-- Product 1 -->
+            <div class="flex items-center checkout-item transition">
+              <img src="https://images.unsplash.com/photo-1603921326210-6edd2d60ca68?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" 
+                   alt="Product" class="w-16 h-16 rounded-lg object-cover mr-4">
+              <div class="flex-1">
+                <h3 class="font-medium">Samsung Galaxy S21</h3>
+                <p class="text-sm text-gray-500">Color: Black</p>
+              </div>
+              <div class="text-right">
+                <p class="font-medium">KSh 85,000</p>
+                <p class="text-sm text-gray-500">Qty: 1</p>
+              </div>
+            </div>
+            
+            <!-- Product 2 -->
+            <div class="flex items-center checkout-item transition">
+              <img src="https://images.unsplash.com/photo-1591085686350-798c0f9faa7f?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" 
+                   alt="Product" class="w-16 h-16 rounded-lg object-cover mr-4">
+              <div class="flex-1">
+                <h3 class="font-medium">Argan Hair Oil</h3>
+                <p class="text-sm text-gray-500">Size: 100ml</p>
+              </div>
+              <div class="text-right">
+                <p class="font-medium">KSh 1,200</p>
+                <p class="text-sm text-gray-500">Qty: 2</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="border-t pt-4 space-y-3">
+            <div class="flex justify-between">
+              <span class="text-gray-600">Subtotal</span>
+              <span class="font-medium">KSh 87,400</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-gray-600">Shipping</span>
+              <span class="font-medium">KSh 250</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-gray-600">Tax</span>
+              <span class="font-medium">KSh 1,748</span>
+            </div>
+            <div class="flex justify-between text-lg font-bold mt-4 pt-4 border-t">
+              <span>Total</span>
+              <span>KSh 89,398</span>
+            </div>
+          </div>
+          
+          <div class="mt-6">
+            <label for="promoCode" class="block text-sm font-medium text-gray-700 mb-1">Promo Code</label>
+            <div class="flex">
+              <input type="text" id="promoCode" placeholder="Enter code" class="flex-1 px-4 py-2 border rounded-l-lg focus:ring-2 focus:ring-primary">
+              <button class="bg-gray-200 text-gray-800 px-4 py-2 rounded-r-lg hover:bg-gray-300 transition">Apply</button>
+            </div>
+          </div>
+          
+          <div class="mt-6 p-4 bg-blue-50 rounded-lg">
+            <h3 class="font-bold text-blue-800 mb-2">Delivery Estimate</h3>
+            <p class="text-sm text-blue-700">Expected delivery: 2-3 business days after payment confirmation</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white py-12">
+    <div class="container mx-auto px-6">
+      <div class="grid md:grid-cols-4 gap-8">
+        <div>
+          <div class="flex items-center space-x-2 mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+            </svg>
+            <span class="text-xl font-bold">Rodstar</span>
+          </div>
+          <p class="text-gray-300">Helping Kenyan entrepreneurs sell smarter since 2023.</p>
+        </div>
+        
+        <div>
+          <h3 class="font-bold text-lg mb-4">Quick Links</h3>
+          <ul class="space-y-2">
+            <li><a href="index.html" class="text-gray-300 hover:text-primary transition">Home</a></li>
+            <li><a href="shop.html" class="text-gray-300 hover:text-primary transition">Shop</a></li>
+            <li><a href="sell.html" class="text-gray-300 hover:text-primary transition">Sell</a></li>
+            <li><a href="contact.html" class="text-gray-300 hover:text-primary transition">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h3 class="font-bold text-lg mb-4">Customer Service</h3>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-gray-300 hover:text-primary transition">FAQs</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-primary transition">Shipping Policy</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-primary transition">Returns & Refunds</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-primary transition">Track Order</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h3 class="font-bold text-lg mb-4">Contact</h3>
+          <ul class="space-y-2">
+            <li class="flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-primary" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+              </svg>
+              <span>Nairobi, Kenya</span>
+            </li>
+            <li class="flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-primary" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+              </svg>
+              <span>support@rodstar.co.ke</span>
+            </li>
+            <li class="flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-primary" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+              </svg>
+              <span>+254 700 123456</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+        <p>© 2023 Rodstar Pocket Market. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Handle radio button selection styling
+      const radioInputs = document.querySelectorAll('input[type="radio"]');
+      radioInputs.forEach(input => {
+        // Set initial checked state
+        if (input.checked) {
+          const label = document.querySelector(`label[for="${input.id}"]`);
+          label.querySelector('div > div').classList.remove('hidden');
+          label.classList.add('border-primary', 'bg-green-50');
+        }
+        
+        input.addEventListener('change', function() {
+          // Remove all selections
+          document.querySelectorAll(`input[name="${this.name}"]`).forEach(radio => {
+            const radioLabel = document.querySelector(`label[for="${radio.id}"]`);
+            radioLabel.querySelector('div > div').classList.add('hidden');
+            radioLabel.classList.remove('border-primary', 'bg-green-50');
+          });
+          
+          // Add to selected
+          const label = document.querySelector(`label[for="${this.id}"]`);
+          label.querySelector('div > div').classList.remove('hidden');
+          label.classList.add('border-primary', 'bg-green-50');
+          
+          // Update shipping cost in summary if delivery method changed
+          if (this.name === 'deliveryMethod') {
+            const shippingCost = this.value === 'pickup' ? 150 : 250;
+            document.querySelector('.flex.justify-between span:contains("Shipping") + span').textContent = `KSh ${shippingCost}`;
+            updateTotal();
+          }
+        });
+      });
+      
+      // Continue to payment button
+      document.getElementById('continueToPayment').addEventListener('click', function() {
+        // Validate form
+        const form = document.getElementById('deliveryForm');
+        let isValid = true;
+        
+        form.querySelectorAll('[required]').forEach(field => {
+          if (!field.value.trim()) {
+            field.classList.add('border-red-500');
+            isValid = false;
+          } else {
+            field.classList.remove('border-red-500');
+          }
+        });
+        
+        if (isValid) {
+          // In a real app, would submit to server then redirect
+          window.location.href = 'payment.html';
+        } else {
+          alert('Please fill all required fields');
+        }
+      });
+      
+      // Update total when promo code is applied
+      document.querySelector('#promoCode + button').addEventListener('click', function() {
+        const promoCode = document.getElementById('promoCode').value;
+        if (promoCode === 'RODSTAR10') {
+          alert('Promo code applied! 10% discount added.');
+          updateTotal(0.9); // Apply 10% discount
+        } else if (promoCode) {
+          alert('Invalid promo code');
+        }
+      });
+      
+      // Calculate totals
+      function updateTotal(discount = 1) {
+        const subtotal = 87400;
+        const shipping = document.querySelector('input[name="deliveryMethod"]:checked').value === 'pickup' ? 150 : 250;
+        const tax = subtotal * 0.02; // 2% tax
+        const total = (subtotal + shipping + tax) * discount;
+        
+        document.querySelector('.flex.justify-between span:contains("Tax") + span').textContent = `KSh ${tax.toFixed(0)}`;
+        document.querySelector('.flex.justify-between.text-lg span:last-child').textContent = `KSh ${total.toFixed(0)}`;
+      }
+      
+      // Initialize totals
+      updateTotal();
+    });
+  </script>
+</body>
+</html>

@@ -23,9 +23,9 @@
       }
     }
   </script>
-</head>
+</hrecommeead>
 <body class="font-sans bg-gray-50">
-  <!-- Navigation -->
+ <!-- Navigation -->
   <nav class="bg-white shadow-md">
     <div class="container mx-auto px-6 py-3">
       <div class="flex items-center justify-between">
@@ -33,12 +33,14 @@
           <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
           </svg>
+          <span class="text-xl font-bold text-dark">Pocket-Market</span>
+        </div>
+        
         <div class="hidden md:flex items-center space-x-8">
           <a href="index.html" class="text-dark hover:text-primary">Home</a>
-          <a href="how-it-works.html" class="text-dark hover:text-primary">How It Works</a>
+          <a href="#" class="text-dark hover:text-primary">How It Works</a>
           <a href="#" class="text-dark hover:text-primary">Success Stories</a>
-          <a href="contact.html" class="text-dark hover:text-primary">Contact</a>
-          <a href="shop.html" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-secondary transition font-semibold">Shop Now</a>
+          <a href="contact.html" class="text-primary font-medium">Contact</a>
           <div id="authButtons">
             <button id="signupBtn" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-secondary transition">Sign Up</button>
             <button id="loginBtn" class="text-dark px-4 py-2 rounded-lg hover:text-primary transition">Log In</button>
@@ -811,6 +813,67 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('ctaSignupBtn').addEventListener('click', () => {
     authUI.showModal();
     authUI.showForm('signup');
+  });
+});
+
+// Recommendation Tool Logic
+document.addEventListener('DOMContentLoaded', function () {
+  const form = document.getElementById('recommendationForm');
+  const results = document.getElementById('results');
+  if (!form) return;
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const productType = document.getElementById('productType').value;
+    const targetBuyer = document.getElementById('targetBuyer').value;
+    const budget = document.getElementById('budget').value;
+
+    let recs = [];
+
+    // Simple logic for recommendations
+    if (!productType || !targetBuyer || !budget) {
+      results.innerHTML = `<div class="text-red-500">Please select all options to get recommendations.</div>`;
+      return;
+    }
+
+    if (productType === 'physical') {
+      if (targetBuyer === 'local') recs.push('WhatsApp Groups', 'Facebook Marketplace');
+      if (targetBuyer === 'city') recs.push('Jiji', 'Facebook Marketplace');
+      if (targetBuyer === 'online') recs.push('Instagram', 'Jumia', 'Jiji');
+    }
+    if (productType === 'digital') {
+      recs.push('Facebook', 'Instagram', 'LinkedIn');
+      if (targetBuyer === 'online') recs.push('Fiverr', 'Upwork');
+    }
+    if (productType === 'skill') {
+      recs.push('Facebook Groups', 'WhatsApp Groups');
+      if (targetBuyer === 'city' || targetBuyer === 'online') recs.push('Jiji', 'LinkedIn');
+    }
+    if (productType === 'snacks') {
+      recs.push('WhatsApp Status', 'Facebook Marketplace');
+      if (targetBuyer === 'city') recs.push('Jiji');
+    }
+
+    // Budget filter
+    if (budget === 'none') {
+      recs = recs.filter(platform => !['Jumia', 'Fiverr', 'Upwork'].includes(platform));
+    }
+
+    // Remove duplicates
+    recs = [...new Set(recs)];
+
+    if (recs.length === 0) {
+      results.innerHTML = `<div class="text-yellow-600">No strong recommendations found for your selection. Try different options!</div>`;
+    } else {
+      results.innerHTML = `
+        <div class="bg-green-50 border-l-4 border-primary p-4 rounded">
+          <h4 class="font-bold text-primary mb-2">Recommended Platforms:</h4>
+          <ul class="list-disc pl-6 text-gray-700">
+            ${recs.map(r => `<li>${r}</li>`).join('')}
+          </ul>
+        </div>
+      `;
+    }
   });
 });
 </script>
