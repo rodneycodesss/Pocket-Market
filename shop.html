@@ -103,6 +103,50 @@
       dropdown.classList.add('hidden');
     }
   });
+
+  // --- Add to Cart functionality ---
+  // Get all Buy buttons
+  const buyButtons = document.querySelectorAll('button.bg-primary');
+  // Get cart count element
+  const cartCount = document.getElementById('cartCount');
+
+  // Load cart count from localStorage
+  function updateCartCount() {
+    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+    cartCount.textContent = cart.length;
+  }
+  updateCartCount();
+
+  buyButtons.forEach((btn) => {
+    btn.addEventListener('click', function () {
+      let name = '';
+      let type = '';
+      // Check if inside product card
+      const productCard = this.closest('.p-4');
+      if (productCard) {
+        name = productCard.querySelector('h3')?.textContent || 'Product';
+        type = 'product';
+      } else {
+        // Check if inside service card
+        const serviceCard = this.closest('.p-6');
+        if (serviceCard) {
+          name = serviceCard.querySelector('h3')?.textContent || 'Service';
+          type = 'service';
+        }
+      }
+      if (!name) return; // Not a valid button
+
+      // Get cart from localStorage
+      let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+      // Add item to cart
+      cart.push({ name, type });
+      localStorage.setItem('cart', JSON.stringify(cart));
+      // Update cart count
+      updateCartCount();
+      // Optional: show a message
+      // alert(name + ' added to cart!');
+    });
+  });
 </script>
 
   <!-- Hero Section -->
