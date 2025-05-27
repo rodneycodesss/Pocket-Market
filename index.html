@@ -415,128 +415,135 @@
   </footer>
 
   <!-- Auth Modal -->
-  <div id="authModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center p-4">
-    <div class="bg-white rounded-xl shadow-xl w-full max-w-md overflow-hidden">
-      <!-- Close Button -->
-      <div class="flex justify-end p-2">
-        <button id="closeAuthModal" class="text-gray-500 hover:text-gray-700">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-          </svg>
+<div id="authModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center p-4">
+  <div class="bg-white rounded-xl shadow-xl w-full max-w-md overflow-hidden">
+    <!-- Close Button -->
+    <div class="flex justify-end p-2">
+      <button id="closeAuthModal" class="text-gray-500 hover:text-gray-700">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+    <!-- Auth Container -->
+    <div class="px-8 pb-8">
+      <!-- Tab Buttons -->
+      <div class="flex border-b">
+        <button id="loginTabBtn" class="flex-1 py-4 font-medium text-primary border-b-2 border-primary">
+          Log In
+        </button>
+        <button id="signupTabBtn" class="flex-1 py-4 font-medium text-gray-500">
+          Sign Up
         </button>
       </div>
-      <!-- Auth Container -->
-      <div class="px-8 pb-8">
-        <!-- Tab Buttons -->
-        <div class="flex border-b">
-          <button id="loginTabBtn" class="flex-1 py-4 font-medium text-primary border-b-2 border-primary">
-            Log In
-          </button>
-          <button id="signupTabBtn" class="flex-1 py-4 font-medium text-gray-500">
-            Sign Up
+      <!-- Login Form -->
+      <form id="loginForm" class="pt-6 space-y-4">
+        <div>
+          <label for="loginEmail" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+          <input type="email" id="loginEmail" required
+                 class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+          <p id="loginEmailError" class="text-red-500 text-xs mt-1 hidden">Please enter a valid email</p>
+        </div>
+        <div>
+          <label for="loginPassword" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+          <input type="password" id="loginPassword" required minlength="6"
+                 class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+          <p id="loginPasswordError" class="text-red-500 text-xs mt-1 hidden">Password must be 6+ characters</p>
+        </div>
+        <!-- User type selection -->
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Login as:</label>
+          <div class="flex gap-4">
+            <label>
+              <input type="radio" name="loginUserType" value="client" required>
+              Client
+            </label>
+            <label>
+              <input type="radio" name="loginUserType" value="seller" required>
+              Seller
+            </label>
+          </div>
+        </div>
+        <div class="flex items-center justify-between">
+          <button type="button" id="forgotPasswordBtn" class="text-sm text-primary hover:underline">
+            Forgot password?
           </button>
         </div>
-        <!-- Login Form -->
-        <form id="loginForm" class="pt-6 space-y-4">
-          <div>
-            <label for="loginEmail" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-            <input type="email" id="loginEmail" required
-                   class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
-            <p id="loginEmailError" class="text-red-500 text-xs mt-1 hidden">Please enter a valid email</p>
-          </div>
-          <div>
-            <label for="loginPassword" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
-            <input type="password" id="loginPassword" required minlength="6"
-                   class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
-            <p id="loginPasswordError" class="text-red-500 text-xs mt-1 hidden">Password must be 6+ characters</p>
-          </div>
-          <!-- User type selection -->
-          <div>
-            <label class="block text-sm font-medium text-gray-700 mb-1">Login as:</label>
-            <div class="flex gap-4">
-              <label>
-                <input type="radio" name="loginUserType" value="client" required>
-                Client
-              </label>
-              <label>
-                <input type="radio" name="loginUserType" value="seller" required>
-                Seller
-              </label>
-            </div>
-          </div>
-          <div class="flex items-center justify-between">
-            <button type="button" id="forgotPasswordBtn" class="text-sm text-primary hover:underline">
-              Forgot password?
-            </button>
-          </div>
-          <button type="submit" class="w-full bg-primary text-white py-3 rounded-lg hover:bg-secondary transition font-medium">
-            Log In
-          </button>
-          <p id="loginError" class="text-red-500 text-center hidden"></p>
-        </form>
-        <!-- Signup Form -->
-        <form id="signupForm" class="pt-6 space-y-4 hidden">
-          <div>
-            <label for="signupEmail" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-            <input type="email" id="signupEmail" required
-                   class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
-            <p id="signupEmailError" class="text-red-500 text-xs mt-1 hidden">Please enter a valid email</p>
-          </div>
-          <div>
-            <label for="signupPassword" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
-            <input type="password" id="signupPassword" required minlength="6"
-                   class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
-            <p id="signupPasswordError" class="text-red-500 text-xs mt-1 hidden">Password must be 6+ characters</p>
-          </div>
-          <div>
-            <label for="signupConfirmPassword" class="block text-sm font-medium text-gray-700 mb-1">Confirm Password</label>
-            <input type="password" id="signupConfirmPassword" required
-                   class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
-            <p id="signupConfirmError" class="text-red-500 text-xs mt-1 hidden">Passwords don't match</p>
-          </div>
-          <!-- User type selection -->
-          <div>
-            <label class="block text-sm font-medium text-gray-700 mb-1">Sign up as:</label>
-            <div class="flex gap-4">
-              <label>
-                <input type="radio" name="signupUserType" value="client" required>
-                Client
-              </label>
-              <label>
-                <input type="radio" name="signupUserType" value="seller" required>
-                Seller
-              </label>
-            </div>
-          </div>
-          <button type="submit" class="w-full bg-primary text-white py-3 rounded-lg hover:bg-secondary transition font-medium">
-            Create Account
-          </button>
-          <p id="signupError" class="text-red-500 text-center hidden"></p>
-        </form>
-        <!-- Forgot Password Form -->
-        <div id="forgotPasswordForm" class="pt-6 space-y-4 hidden">
-          <p class="text-gray-600">Enter your email to receive a password reset link</p>
-          <div>
-            <label for="resetEmail" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-            <input type="email" id="resetEmail" required
-                   class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
-            <p id="resetEmailError" class="text-red-500 text-xs mt-1 hidden">Please enter a valid email</p>
-          </div>
-          <button id="sendResetBtn" class="w-full bg-primary text-white py-3 rounded-lg hover:bg-secondary transition font-medium">
-            Send Reset Link
-          </button>
-          <button id="backToLoginBtn" class="w-full text-primary mt-2">
-            ← Back to login
-          </button>
-          <p id="resetMessage" class="text-green-500 text-center hidden"></p>
+        <button type="submit" class="w-full bg-primary text-white py-3 rounded-lg hover:bg-secondary transition font-medium">
+          Log In
+        </button>
+        <p id="loginError" class="text-red-500 text-center hidden"></p>
+      </form>
+      <!-- Signup Form -->
+      <form id="signupForm" class="pt-6 space-y-4 hidden">
+        <div>
+          <label for="signupEmail" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+          <input type="email" id="signupEmail" required
+                 class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+          <p id="signupEmailError" class="text-red-500 text-xs mt-1 hidden">Please enter a valid email</p>
         </div>
+        <div>
+          <label for="signupPassword" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+          <input type="password" id="signupPassword" required minlength="6"
+                 class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+          <p id="signupPasswordError" class="text-red-500 text-xs mt-1 hidden">Password must be 6+ characters</p>
+        </div>
+        <div>
+          <label for="signupConfirmPassword" class="block text-sm font-medium text-gray-700 mb-1">Confirm Password</label>
+          <input type="password" id="signupConfirmPassword" required
+                 class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+          <p id="signupConfirmError" class="text-red-500 text-xs mt-1 hidden">Passwords don't match</p>
+        </div>
+        <!-- User type selection -->
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Sign up as:</label>
+          <div class="flex gap-4">
+            <label>
+              <input type="radio" name="signupUserType" value="client" required>
+              Client
+            </label>
+            <label>
+              <input type="radio" name="signupUserType" value="seller" required>
+              Seller
+            </label>
+          </div>
+        </div>
+        <button type="submit" class="w-full bg-primary text-white py-3 rounded-lg hover:bg-secondary transition font-medium">
+          Create Account
+        </button>
+        <p id="signupError" class="text-red-500 text-center hidden"></p>
+      </form>
+      <!-- Forgot Password Form -->
+      <div id="forgotPasswordForm" class="pt-6 space-y-4 hidden">
+        <p class="text-gray-600">Enter your email to receive a password reset link</p>
+        <div>
+          <label for="resetEmail" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+          <input type="email" id="resetEmail" required
+                 class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+          <p id="resetEmailError" class="text-red-500 text-xs mt-1 hidden">Please enter a valid email</p>
+        </div>
+        <button id="sendResetBtn" class="w-full bg-primary text-white py-3 rounded-lg hover:bg-secondary transition font-medium">
+          Send Reset Link
+        </button>
+        <button id="backToLoginBtn" class="w-full text-primary mt-2">
+          ← Back to login
+        </button>
+        <p id="resetMessage" class="text-green-500 text-center hidden"></p>
       </div>
     </div>
   </div>
+</div>
 
-  <script src="script.js"></script>
-  <script>
-// Auth UI Controller
+<script>
+// Minimal state for demo
+const state = {
+  users: JSON.parse(localStorage.getItem('mockUsers') || '[]'),
+  currentUser: JSON.parse(localStorage.getItem('currentUser') || 'null')
+};
+function updateAuthUI() {
+  // You can update UI here if needed
+}
+
 class AuthUI {
   constructor() {
     this.initElements();
@@ -705,6 +712,12 @@ class AuthUI {
         localStorage.setItem('currentUser', JSON.stringify(state.currentUser));
         this.closeModal();
         updateAuthUI();
+        // Redirect based on user type
+        if (userType === 'seller') {
+          window.location.href = 'seller.html';
+        } else {
+          window.location.href = 'index.html';
+        }
       } else {
         throw new Error("Invalid email, password, or account type");
       }
@@ -750,6 +763,12 @@ class AuthUI {
       localStorage.setItem('currentUser', JSON.stringify(state.currentUser));
       this.closeModal();
       updateAuthUI();
+      // Redirect based on user type
+      if (userType === 'seller') {
+        window.location.href = 'seller.html';
+      } else {
+        window.location.href = 'index.html';
+      }
     } catch (error) {
       this.signupError.textContent = "Signup failed. Please try again.";
       this.signupError.classList.remove('hidden');
@@ -794,6 +813,6 @@ document.addEventListener('DOMContentLoaded', () => {
     authUI.showForm('signup');
   });
 });
-  </script>
+</script>
 </body>
 </html>
