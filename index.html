@@ -58,8 +58,8 @@
           <span class="hidden md:inline text-dark font-medium">Profile</span>
         </button>
         <div class="absolute right-0 mt-2 w-40 bg-white rounded-lg shadow-lg py-2 z-20 hidden group-hover:block" id="profileDropdown">
-          <a href="#" class="block px-4 py-2 text-dark hover:bg-gray-100">Login</a>
-          <a href="#" class="block px-4 py-2 text-dark hover:bg-gray-100">Sign Up</a>
+          <a href="#" id="loginBtn" class="block px-4 py-2 text-dark hover:bg-gray-100">Login</a>
+          <a href="#" id="signupBtn" class="block px-4 py-2 text-dark hover:bg-gray-100">Sign Up</a>
         </div>
       </div>
     </div>
@@ -79,8 +79,8 @@
     <a href="contact.html" class="block py-2 hover:text-primary">Contact</a>
     <a href="cart.html" class="block py-2 hover:text-primary">Cart</a>
     <div class="border-t my-2"></div>
-    <a href="#" class="block py-2 hover:text-primary">Login</a>
-    <a href="#" class="block py-2 hover:text-primary">Sign Up</a>
+    <a href="#" id="mobileLoginBtn" class="block py-2 hover:text-primary">Login</a>
+    <a href="#" id="mobileSignupBtn" class="block py-2 hover:text-primary">Sign Up</a>
   </div>
 </nav>
 <script>
@@ -101,6 +101,46 @@
     if (dropdown && !dropdown.classList.contains('hidden')) {
       dropdown.classList.add('hidden');
     }
+  });
+
+  // 2. Make Login/Sign Up buttons open the modal
+  document.addEventListener('DOMContentLoaded', function() {
+    // Desktop
+    document.getElementById('loginBtn').addEventListener('click', function(e) {
+      e.preventDefault();
+      if (window.authUI) {
+        window.authUI.showModal();
+        window.authUI.showForm('login');
+      }
+    });
+    document.getElementById('signupBtn').addEventListener('click', function(e) {
+      e.preventDefault();
+      if (window.authUI) {
+        window.authUI.showModal();
+        window.authUI.showForm('signup');
+      }
+    });
+    // Mobile
+    document.getElementById('mobileLoginBtn').addEventListener('click', function(e) {
+      e.preventDefault();
+      if (window.authUI) {
+        window.authUI.showModal();
+        window.authUI.showForm('login');
+      }
+    });
+    document.getElementById('mobileSignupBtn').addEventListener('click', function(e) {
+      e.preventDefault();
+      if (window.authUI) {
+        window.authUI.showModal();
+        window.authUI.showForm('signup');
+      }
+    });
+  });
+
+  // Make authUI globally accessible
+  document.addEventListener('DOMContentLoaded', () => {
+    window.authUI = new AuthUI();
+    // ...existing event listeners for ctaSignupBtn...
   });
 </script>
 
