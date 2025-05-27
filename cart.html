@@ -296,6 +296,21 @@ document.addEventListener('DOMContentLoaded', function () {
       alert('You have been logged out.');
       window.location.href = 'index.html'; // Redirect to home page
     });
+    // Mobile login/signup buttons
+    document.getElementById('mobileLoginBtn').addEventListener('click', function() {
+      alert('Login functionality not implemented yet.');
+    }); 
+    document.getElementById('mobileSignupBtn').addEventListener('click', function() {
+      alert('Sign Up functionality not implemented yet.');
+    });
+    // Update cart count dynamically
+    function updateCartCount(count) {
+      const cartCount = document.getElementById('cartCount');
+      cartCount.textContent = count;
+      cartCount.classList.toggle('hidden', count === 0);
+    } 
+    // Example: Update cart count to 3
+    updateCartCount(0); 
   </script>
 </body>
 </html>
