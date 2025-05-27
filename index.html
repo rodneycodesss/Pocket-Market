@@ -963,6 +963,15 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 });
+
+  // Hide Sell link if not a seller
+  document.addEventListener('DOMContentLoaded', function() {
+    const userRole = localStorage.getItem('userRole');
+    const sellLinks = document.querySelectorAll('a[href="seller.html"]');
+    if (userRole !== 'seller') {
+      sellLinks.forEach(link => link.style.display = 'none');
+    }
+  });
 </script>
 </body>
 </html>
