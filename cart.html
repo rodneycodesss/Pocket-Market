@@ -284,28 +284,20 @@ document.addEventListener('DOMContentLoaded', function () {
     return Number(str.replace(/[^\d.]/g, ''));
   }
 
-  // Update totals
+  // Calculate and update subtotal dynamically
   function updateTotals() {
     const cart = JSON.parse(localStorage.getItem('cart') || '[]');
     let subtotal = 0;
     cart.forEach(item => {
-      subtotal += item.price * (item.qty || 1);
+      subtotal += (item.price || 0) * (item.qty || 1);
     });
-
-    let shippingInput = document.getElementById('shippingInput');
-    let shipping = shippingInput ? Number(shippingInput.value) : 0;
-    if (isNaN(shipping) || shipping < 0) shipping = 0;
-
-    const tax = Math.round(subtotal * 0.02);
-    const total = subtotal + shipping + tax;
-
+    // Update the subtotal in the DOM
     document.querySelectorAll('.flex.justify-between').forEach(row => {
-      if (row.children[0].textContent.includes('Subtotal')) row.children[1].textContent = `KSh ${subtotal.toLocaleString()}`;
-      if (row.children[0].textContent.includes('Shipping')) row.children[1].textContent = `KSh ${shipping}`;
-      if (row.children[0].textContent.includes('Tax')) row.children[1].textContent = `KSh ${tax}`;
+      if (row.children[0].textContent.includes('Subtotal')) {
+        row.children[1].textContent = `KSh ${subtotal.toLocaleString()}`;
+      }
     });
-    document.querySelector('.flex.justify-between.text-lg span:last-child').textContent = `KSh ${total.toLocaleString()}`;
-    updateCartCount(cart.length);
+    // ...update tax, shipping, total as needed...
   }
 
   // Update cart count badge
