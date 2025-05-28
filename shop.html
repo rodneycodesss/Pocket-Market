@@ -467,37 +467,42 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   updateCartCount();
 
-  // Attach event listeners to all Buy buttons
+  // Attach event listeners to all Buy buttons (products)
   document.querySelectorAll('button.bg-primary').forEach(btn => {
-    btn.addEventListener('click', function () {
-      // Find product card
-      const card = this.closest('.bg-white');
-      if (!card) return;
+    // Only for product cards (not services)
+    const card = btn.closest('.bg-white');
+    if (card && card.querySelector('h3')) {
+      btn.addEventListener('click', function () {
+        // Get product info
+        const name = card.querySelector('h3')?.textContent?.trim() || 'Product';
+        const priceText = card.querySelector('.font-bold.text-primary')?.textContent || 'KSh 0';
+        const price = Number(priceText.replace(/[^\d]/g, '')) || 0;
+        const img = card.querySelector('img')?.src || '';
+        const desc = card.querySelector('p.text-gray-500')?.textContent?.trim() || '';
 
-      // Get product info
-      const name = card.querySelector('h3')?.textContent?.trim() || 'Product';
-      const priceText = card.querySelector('.font-bold.text-primary')?.textContent || 'KSh 0';
-      const price = Number(priceText.replace(/[^\d]/g, '')) || 0;
-      const img = card.querySelector('img')?.src || '';
-      const desc = card.querySelector('p.text-gray-500')?.textContent?.trim() || '';
+        // Get cart from localStorage
+        let cart = JSON.parse(localStorage.getItem('cart') || '[]');
 
-      // Get cart from localStorage
-      let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+        // Check if already in cart (by name)
+        let existing = cart.find(item => item.name === name && item.price === price);
+        if (existing) {
+          existing.qty = (existing.qty || 1) + 1;
+        } else {
+          cart.push({ name, price, img, desc, qty: 1 });
+        }
 
-      // Check if already in cart (by name)
-      let existing = cart.find(item => item.name === name && item.price === price);
-      if (existing) {
-        existing.qty = (existing.qty || 1) + 1;
-      } else {
-        cart.push({ name, price, img, desc, qty: 1 });
-      }
+        // Save cart and update count
+        localStorage.setItem('cart', JSON.stringify(cart));
+        updateCartCount();
+      });
+    }
+  });
 
-      // Save cart and update count
-      localStorage.setItem('cart', JSON.stringify(cart));
-      updateCartCount();
-
-      // Optional: show feedback
-      // alert(`${name} added to cart!`);
+  // Attach event listeners to all Request buttons (services)
+  document.querySelectorAll('#services button.bg-primary').forEach(btn => {
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      window.location.href = 'contact.html';
     });
   });
 });
