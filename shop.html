@@ -454,5 +454,53 @@
       </div>
     </div>
   </footer>
+  // Place this script at the end of your shop.html, before </body>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  // Update cart count on page load
+  function updateCartCount() {
+    const cartCount = document.getElementById('cartCount');
+    if (cartCount) {
+      const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+      cartCount.textContent = cart.length;
+    }
+  }
+  updateCartCount();
+
+  // Attach event listeners to all Buy buttons
+  document.querySelectorAll('button.bg-primary').forEach(btn => {
+    btn.addEventListener('click', function () {
+      // Find product card
+      const card = this.closest('.bg-white');
+      if (!card) return;
+
+      // Get product info
+      const name = card.querySelector('h3')?.textContent?.trim() || 'Product';
+      const priceText = card.querySelector('.font-bold.text-primary')?.textContent || 'KSh 0';
+      const price = Number(priceText.replace(/[^\d]/g, '')) || 0;
+      const img = card.querySelector('img')?.src || '';
+      const desc = card.querySelector('p.text-gray-500')?.textContent?.trim() || '';
+
+      // Get cart from localStorage
+      let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+
+      // Check if already in cart (by name)
+      let existing = cart.find(item => item.name === name && item.price === price);
+      if (existing) {
+        existing.qty = (existing.qty || 1) + 1;
+      } else {
+        cart.push({ name, price, img, desc, qty: 1 });
+      }
+
+      // Save cart and update count
+      localStorage.setItem('cart', JSON.stringify(cart));
+      updateCartCount();
+
+      // Optional: show feedback
+      // alert(`${name} added to cart!`);
+    });
+  });
+});
+</script>
 </body>
 </html>
