@@ -161,7 +161,7 @@
             </div>
             <div class="flex justify-between">
               <span class="text-gray-600">Shipping</span>
-              <span class="font-medium">KSh 250</span>
+              <input id="shippingInput" type="number" min="0" value="0" class="w-24 px-2 py-1 border rounded text-right font-medium bg-gray-100" style="background: #f9fafb;" readonly>
             </div>
             <div class="flex justify-between">
               <span class="text-gray-600">Tax</span>
@@ -256,7 +256,12 @@ document.addEventListener('DOMContentLoaded', function () {
       const qty = Number(item.querySelector('input[type="number"]').value);
       subtotal += price * qty;
     });
-    const shipping = 250;
+
+    // Get shipping value from input, default to 0 if not specified
+    let shippingInput = document.getElementById('shippingInput');
+    let shipping = shippingInput ? Number(shippingInput.value) : 0;
+    if (isNaN(shipping) || shipping < 0) shipping = 0;
+
     const tax = Math.round(subtotal * 0.02);
     const total = subtotal + shipping + tax;
 
@@ -284,6 +289,12 @@ document.addEventListener('DOMContentLoaded', function () {
       updateTotals();
     });
   });
+
+  // Shipping input change
+  let shippingInput = document.getElementById('shippingInput');
+  if (shippingInput) {
+    shippingInput.addEventListener('input', updateTotals);
+  }
 
   // Initial totals
   updateTotals();
