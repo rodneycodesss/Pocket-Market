@@ -143,8 +143,13 @@
       localStorage.setItem('cart', JSON.stringify(cart));
       // Update cart count
       updateCartCount();
-      // Optional: show a message
-      // alert(name + ' added to cart!');
+
+      // Show notification
+      let notif = document.createElement('div');
+      notif.textContent = `${name} added to cart!`;
+      notif.className = "fixed top-6 right-6 bg-primary text-white px-4 py-2 rounded shadow-lg z-50 animate-bounce";
+      document.body.appendChild(notif);
+      setTimeout(() => notif.remove(), 1800);
     });
   });
 </script>
