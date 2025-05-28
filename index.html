@@ -140,7 +140,15 @@
   // Make authUI globally accessible
   document.addEventListener('DOMContentLoaded', () => {
     window.authUI = new AuthUI();
-    // ...existing event listeners for ctaSignupBtn...
+  });
+
+  // Hide Sell link if not a seller
+  document.addEventListener('DOMContentLoaded', function() {
+    const userRole = localStorage.getItem('userRole');
+    const sellLinks = document.querySelectorAll('a[href="seller.html"]');
+    if (userRole !== 'seller') {
+      sellLinks.forEach(link => link.style.display = 'none');
+    }
   });
 </script>
 
@@ -964,18 +972,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
-  // Hide Sell link if not a seller
-  document.addEventListener('DOMContentLoaded', function() {
-    const userRole = localStorage.getItem('userRole');
-    const sellLinks = document.querySelectorAll('a[href="seller.html"]');
-    if (userRole !== 'seller') {
-      sellLinks.forEach(link => link.style.display = 'none');
-    }
-  });
-</script>
-<script>
-
-// Update cart count from localStorage
+  // Update cart count from localStorage
   document.addEventListener('DOMContentLoaded', function() {
     const cartCount = document.getElementById('cartCount');
     if (cartCount) {
@@ -983,6 +980,5 @@ document.addEventListener('DOMContentLoaded', function () {
       cartCount.textContent = cart.length;
     }
   });
-</script>
 </body>
 </html>
