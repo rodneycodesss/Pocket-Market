@@ -434,11 +434,12 @@
       });
       
       // Continue to payment button
-      document.getElementById('continueToPayment').addEventListener('click', function() {
+      document.getElementById('continueToPayment').addEventListener('click', function(e) {
+        e.preventDefault();
         // Validate form
         const form = document.getElementById('deliveryForm');
         let isValid = true;
-        
+
         form.querySelectorAll('[required]').forEach(field => {
           if (!field.value.trim()) {
             field.classList.add('border-red-500');
@@ -447,10 +448,14 @@
             field.classList.remove('border-red-500');
           }
         });
-        
+
         if (isValid) {
-          // In a real app, would submit to server then redirect
-          window.location.href = 'payment.html';
+          // Show delivery message
+          showCoolAlert('Thank you for your order! You will receive delivery updates soon.', 'success');
+          // Optionally clear cart:
+          // localStorage.removeItem('cart');
+          // Optionally redirect after a delay:
+          // setTimeout(() => window.location.href = 'index.html', 2500);
         } else {
           showCoolAlert('Please fill all required fields', 'error');
         }
@@ -459,7 +464,7 @@
       // Update total when promo code is applied
       document.querySelector('#promoCode + button').addEventListener('click', function() {
         const promoCode = document.getElementById('promoCode').value;
-        if (promoCode === 'RODSTAR10') {
+        if (promoCode === 'PM10') {
           alert('Promo code applied! 10% discount added.');
           updateTotal(0.9); // Apply 10% discount
         } else if (promoCode) {
@@ -583,3 +588,4 @@ function showCoolAlert(message, type = "success") {
 }
 </script>
 <input id="shippingInput" type="number" min="0" value="0" class="w-24 px-2 py-1 border rounded text-right font-medium" style="background: #f9fafb;">
+</body>
