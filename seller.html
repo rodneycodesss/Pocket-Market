@@ -410,10 +410,10 @@
         <div>
           <h3 class="font-bold text-lg mb-4">Seller Resources</h3>
           <ul class="space-y-2">
-            <li><a href="#" class="text-gray-300 hover:text-primary transition">Seller Guidelines</a></li>
-            <li><a href="#" class="text-gray-300 hover:text-primary transition">Pricing Calculator</a></li>
+            <li><a href="https://www.etsy.com/legal/sellers/" class="text-gray-300 hover:text-primary transition">Seller Guidelines</a></li>
+            <li><a href="https://www.onlinelabels.com/calculators/profitmargincalculator?srsltid=AfmBOopyR7OrHl9XEEY-ZvcK1K477sW6ryKgvp9vTb9ZggElA8F2QTVL" class="text-gray-300 hover:text-primary transition">Pricing Calculator</a></li>
             <li><a href="https://www.salesforce.com/eu/small-business/marketing/smb-marketing-guide/" class="text-gray-300 hover:text-primary transition">Marketing Tips</a></li>
-            <li><a href="#" class="text-gray-300 hover:text-primary transition">FAQs</a></li>
+            <li><a href="contact.html#FAQs" class="text-gray-300 hover:text-primary transition">FAQs</a></li>
           </ul>
         </div>
         
@@ -492,7 +492,7 @@
         
         // Validate
         if (!productName || !productCategory || !productDescription || !productPrice || !productLocation) {
-          alert('Please fill all required fields');
+          showCoolAlert('Please fill all required fields', 'error');
           return;
         }
         
@@ -660,6 +660,42 @@ document.addEventListener('DOMContentLoaded', function() {
   // Initial render
   renderProducts();
 });
+</script>
+<script>
+function showCoolAlert(message, type = "success") {
+  // Remove existing alert if present
+  document.querySelectorAll('.custom-cool-alert').forEach(el => el.remove());
+
+  // Create alert div
+  const alertDiv = document.createElement('div');
+  alertDiv.className = `custom-cool-alert fixed top-8 right-8 z-50 px-6 py-4 rounded-lg shadow-lg flex items-center space-x-3
+    ${type === "success" ? "bg-green-600 text-white" : "bg-red-600 text-white"}`;
+  alertDiv.innerHTML = `
+    <svg class="h-6 w-6 ${type === "success" ? "text-white" : "text-white"}" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      ${type === "success"
+        ? `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />`
+        : `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />`}
+    </svg>
+    <span class="font-semibold">${message}</span>
+  `;
+  document.body.appendChild(alertDiv);
+
+  // Animate in
+  alertDiv.style.opacity = 0;
+  alertDiv.style.transform = "translateY(-20px)";
+  setTimeout(() => {
+    alertDiv.style.transition = "all 0.4s cubic-bezier(.4,2,.6,1)";
+    alertDiv.style.opacity = 1;
+    alertDiv.style.transform = "translateY(0)";
+  }, 10);
+
+  // Remove after 2.5s
+  setTimeout(() => {
+    alertDiv.style.opacity = 0;
+    alertDiv.style.transform = "translateY(-20px)";
+    setTimeout(() => alertDiv.remove(), 400);
+  }, 2500);
+}
 </script>
 </body>
 </html>
