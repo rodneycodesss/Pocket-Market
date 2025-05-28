@@ -980,5 +980,64 @@ document.addEventListener('DOMContentLoaded', function () {
       cartCount.textContent = cart.length;
     }
   });
+
+  // Language Translation
+  // Free translation using LibreTranslate API (demo, for small usage)
+async function translateText(text, targetLang) {
+  if (!text.trim()) return text;
+  if (targetLang === 'en') return text;
+  try {
+    const res = await fetch('https://libretranslate.de/translate', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        q: text,
+        source: 'en',
+        target: targetLang,
+        format: 'text'
+      })
+    });
+    const data = await res.json();
+    return data.translatedText || text;
+  } catch {
+    return text;
+  }
+}
+
+// Translate all elements with data-i18n attribute
+async function translatePage(lang) {
+  const elements = document.querySelectorAll('[data-i18n]');
+  for (const el of elements) {
+    const original = el.getAttribute('data-i18n-original') || el.textContent;
+    if (!el.getAttribute('data-i18n-original')) {
+      el.setAttribute('data-i18n-original', original);
+    }
+    el.textContent = lang === 'en' ? original : await translateText(original, lang);
+  }
+}
+
+// On language change
+document.getElementById('langSelect').addEventListener('change', function() {
+  const lang = this.value;
+  localStorage.setItem('lang', lang);
+  translatePage(lang);
+});
+
+// On page load, set language
+document.addEventListener('DOMContentLoaded', function() {
+  const lang = localStorage.getItem('lang') || 'en';
+  document.getElementById('langSelect').value = lang;
+  translatePage(lang);
+});
+</script>
+<!-- Add this to your navbar, e.g. after the cart icon -->
+<div class="ml-4">
+  <select id="langSelect" class="border rounded px-2 py-1 text-sm">
+    <option value="en">English</option>
+    <option value="sw">Kiswahili</option>
+    <option value="fr">Français</option>
+  </select>
+</div>
+
 </body>
 </html>
