@@ -291,13 +291,21 @@ document.addEventListener('DOMContentLoaded', function () {
     cart.forEach(item => {
       subtotal += (item.price || 0) * (item.qty || 1);
     });
+
+    // Calculate tax (example: 2% of subtotal)
+    const tax = Math.round(subtotal * 0.02);
+
     // Update the subtotal in the DOM
     document.querySelectorAll('.flex.justify-between').forEach(row => {
       if (row.children[0].textContent.includes('Subtotal')) {
         row.children[1].textContent = `KSh ${subtotal.toLocaleString()}`;
       }
+      if (row.children[0].textContent.includes('Tax')) {
+        row.children[1].textContent = `KSh ${tax.toLocaleString()}`;
+      }
     });
-    // ...update tax, shipping, total as needed...
+
+    // ...update shipping, total as needed...
   }
 
   // Update cart count badge
