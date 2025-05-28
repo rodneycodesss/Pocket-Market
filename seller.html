@@ -161,7 +161,15 @@
               </div>
             </div>
           </div>
-          
+          <!-- Sales Overview Chart -->
+          <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <h3 class="text-xl font-bold mb-4">Sales Overview</h3>
+            <canvas id="salesChart" height="120"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
           <!-- Add Product Form -->
           <div id="add-product" class="bg-white p-6 rounded-lg shadow-md mb-8">
             <h2 class="text-2xl font-bold mb-6">Add New Product</h2>
@@ -378,10 +386,8 @@
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-  </section>
+          
+          
 
   <!-- Footer -->
   <footer class="bg-dark text-white py-12">
@@ -696,6 +702,53 @@ function showCoolAlert(message, type = "success") {
     setTimeout(() => alertDiv.remove(), 400);
   }, 2500);
 }
+</script>
+<!-- Add Chart.js CDN -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Example sales data (replace with your real sales data if available)
+  const salesData = JSON.parse(localStorage.getItem('sellerSales')) || [
+    { month: 'Jan', total: 400 },
+    { month: 'Feb', total: 900 },
+    { month: 'Mar', total: 1200 },
+    { month: 'Apr', total: 800 },
+    { month: 'May', total: 1600 },
+    { month: 'Jun', total: 2400 }
+  ];
+
+  const ctx = document.getElementById('salesChart').getContext('2d');
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: salesData.map(s => s.month),
+      datasets: [{
+        label: 'Total Sales (KSh)',
+        data: salesData.map(s => s.total),
+        borderColor: '#10B981',
+        backgroundColor: 'rgba(16,185,129,0.1)',
+        fill: true,
+        tension: 0.4,
+        pointRadius: 5,
+        pointBackgroundColor: '#10B981'
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { display: false }
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+          ticks: {
+            callback: value => 'KSh ' + value
+          }
+        }
+      }
+    }
+  });
+});
 </script>
 </body>
 </html>
